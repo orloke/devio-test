@@ -1,9 +1,10 @@
-const pages = () => {
+import { Header } from '../components/Header';
+
+function Home() {
   return (
     <div>
-      <h1>Olá meu nome é Júnior</h1>
-      olá a todos
+      <Header />
     </div>
   );
-};
-export default pages;
+}
+export default Home;
