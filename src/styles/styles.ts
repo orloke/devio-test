@@ -33,13 +33,15 @@ export const DivContent = styled.div`
   display: flex;
   flex-direction: column;
   margin: 3rem 0%;
-  div {
+  .div {
     display: flex;
     justify-content: space-between;
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 1rem;
       width: 100%;
+      text-align: center;
+      align-items: center;
     }
   }
 `;
@@ -67,5 +69,15 @@ export const DivSubtitle = styled.div`
   flex-direction: column;
   h2 {
     margin-bottom: 0.5rem;
+  }
+`;
+
+export const DivCards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
