@@ -51,15 +51,13 @@ export const Content = styled.div`
 
   h4 {
     color: black;
-    margin-top: 1rem;
-  }
-
-  small {
-    margin-top: 0.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
   }
 
   strong {
-    margin: 1rem 0;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     font-weight: bold;
   }
 `;

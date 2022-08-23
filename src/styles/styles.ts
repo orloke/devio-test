@@ -33,9 +33,12 @@ export const DivContent = styled.div`
   display: flex;
   flex-direction: column;
   margin: 3rem 0%;
-  .div {
+  .categories {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 1300px) {
+      gap: 2%;
+    }
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 1rem;
