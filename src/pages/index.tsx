@@ -10,6 +10,7 @@ import {
 
 import guarana from '../../public/images/guarana.jpg';
 import { ProductCard } from '../components/ProductCard';
+import { Button } from '../components/Buttons';
 
 function Home() {
   return (
@@ -98,6 +99,8 @@ function Home() {
           />
         </DivCards>
       </DivContent>
+      <Button variant="outline" text="cancelar" />
+      <Button variant="fill" text="Finalizar pedido" ml={2} />
     </Container>
   );
 }
