@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {
   Cards,
   Container,
+  DivButtons,
   DivCards,
   DivContent,
   DivSubtitle,
@@ -99,8 +100,10 @@ function Home() {
           />
         </DivCards>
       </DivContent>
-      <Button variant="outline" text="cancelar" />
-      <Button variant="fill" text="Finalizar pedido" ml={2} />
+      <DivButtons>
+        <Button variant="outline" text="cancelar" />
+        <Button variant="fill" text="Finalizar pedido" ml={2} />
+      </DivButtons>
     </Container>
   );
 }

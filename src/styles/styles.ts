@@ -75,9 +75,18 @@ export const DivSubtitle = styled.div`
 export const DivCards = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 1%;
+  column-gap: 1%;
+  @media (max-width: 1300px) {
+    justify-content: center;
+  }
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }
+`;
+
+export const DivButtons = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 3rem;
 `;
