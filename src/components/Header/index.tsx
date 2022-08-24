@@ -1,12 +1,10 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useState } from 'react';
 import { DivHeader } from './styles';
 import logo from '../../../public/images/fastfood-logo.png';
 
 export function Header() {
-  const [clickButton, setClickButton] = useState('');
   const { pathname } = useRouter();
 
   return (
@@ -19,27 +17,21 @@ export function Header() {
         </Link>
         <nav>
           <Link href="/">
-            <button
-              className={pathname === '/' ? 'active' : ''}
-              onClick={() => setClickButton('/')}
-              type="button"
-            >
+            <button className={pathname === '/' ? 'active' : ''} type="button">
               Pedidos
             </button>
           </Link>
           <Link href="kitchen">
             <button
-              onClick={() => setClickButton('/kitchen')}
               className={pathname === '/kitchen' ? 'active' : ''}
               type="button"
             >
               Cozinha
             </button>
           </Link>
-          <Link href="/">
+          <Link href="/delivery">
             <button
-              onClick={() => setClickButton('retirada')}
-              className={pathname === 'retirada' ? 'active' : ''}
+              className={pathname === '/delivery' ? 'active' : ''}
               type="button"
             >
               Retirada

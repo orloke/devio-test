@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-interface props {
-  backgroundButton: boolean;
-}
-
 export const DivHeader = styled.div`
   background-color: green;
 
