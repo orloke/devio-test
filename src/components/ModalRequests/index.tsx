@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Aditional } from '../Aditional';
 import { Button } from '../Buttons';
 import { Observation } from '../Observation';
+import { OrderSummary } from '../OrderSummary';
 import { DivAdditional, DivRequests } from './styles';
 
 export function ModalRequests() {
@@ -50,15 +51,16 @@ export function ModalRequests() {
             <Aditional />
             <Aditional />
             <Aditional />
-            <Observation
-              marginBottom={1}
-              marginTop={1}
-              placeholder="Adicione uma observação ao pedido"
-              rows={4}
-            >
-              <h4>Observações</h4>
-            </Observation>
           </DivAdditional>
+          <Observation
+            marginBottom={1}
+            marginTop={1}
+            placeholder="Adicione uma observação ao pedido"
+            rows={4}
+          >
+            <h4>Observações</h4>
+          </Observation>
+          <OrderSummary />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline" text="cancelar" />
