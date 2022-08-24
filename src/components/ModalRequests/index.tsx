@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Aditional from '../Aditional';
+import { Aditional } from '../Aditional';
 import { Button } from '../Buttons';
+import { Observation } from '../Observation';
 import { DivAdditional, DivRequests } from './styles';
 
 export function ModalRequests() {
@@ -28,7 +29,10 @@ export function ModalRequests() {
             />
             <div className="descriptionRequest">
               <h6>Smash da casa</h6>
-              <span>Aqui vai a descrição do pedido</span>
+              <span>
+                2x hamburguer 200g, queijo cheddar, tomate, alface, picles,
+                cebola, molho da casa
+              </span>
               <div className="divButton">
                 <button type="button">+</button>
                 <span>qtd</span>
@@ -46,6 +50,14 @@ export function ModalRequests() {
             <Aditional />
             <Aditional />
             <Aditional />
+            <Observation
+              marginBottom={1}
+              marginTop={1}
+              placeholder="Adicione uma observação ao pedido"
+              rows={4}
+            >
+              <h4>Observações</h4>
+            </Observation>
           </DivAdditional>
         </Modal.Body>
         <Modal.Footer>

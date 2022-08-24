@@ -44,6 +44,7 @@ export const DivCheckbox = styled.div<props>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   .active {
     width: 10px;
     height: 10px;

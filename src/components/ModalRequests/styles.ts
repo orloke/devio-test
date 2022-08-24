@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-interface props {
-  checked: boolean;
-}
-
 export const DivRequests = styled.div`
   display: flex;
   margin-bottom: 1rem;
@@ -15,6 +11,8 @@ export const DivRequests = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 50%;
+    text-align: justify;
   }
 
   .total {
@@ -29,6 +27,7 @@ export const DivRequests = styled.div`
     border-radius: 30px;
     align-items: center;
     border: 1px solid green;
+    margin-top: 1rem;
     button {
       border-radius: 50%;
       background-color: green;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DivAdditional, DivCheckbox } from './styles';
 
-export default function Aditional() {
+export function Aditional() {
   const [checked, setChecked] = useState(true);
   return (
     <DivAdditional>
