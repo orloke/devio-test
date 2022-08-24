@@ -18,6 +18,9 @@ export const DivHeader = styled.div`
       align-items: center;
       gap: 1rem;
     }
+    img {
+      cursor: pointer;
+    }
     nav {
       display: flex;
       align-items: center;
