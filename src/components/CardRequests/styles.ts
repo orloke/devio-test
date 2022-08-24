@@ -4,6 +4,7 @@ interface PropsButton {
   backgroundColor: string;
   color: string;
   marginLeft?: number;
+  display?: string;
 }
 
 export const Container = styled.div`
@@ -47,6 +48,7 @@ export const Button = styled.button<PropsButton>`
   border: none;
   border-radius: 10px;
   color: ${PropsButton => PropsButton.color};
+  display: ${PropsButton => PropsButton.display};
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
   &:hover {

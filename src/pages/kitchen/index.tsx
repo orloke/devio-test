@@ -6,8 +6,8 @@ export default function Kitchen() {
   return (
     <Container>
       <div className="requests">
-        <h3>Pronto</h3>
-        <CardRequests />
+        <h3>Preparando:</h3>
+        <CardRequests displayButtonConfirm="block" />
         <Observation
           marginTop={1}
           marginBottom={1}
@@ -18,8 +18,8 @@ export default function Kitchen() {
         </Observation>
       </div>
       <div className="requestsFinish">
-        <h3>Preparando</h3>
-        <CardRequests />
+        <h3>Pronto:</h3>
+        <CardRequests displayButtonConfirm="none" />
       </div>
     </Container>
   );
