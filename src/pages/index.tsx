@@ -7,7 +7,7 @@ import {
   DivContent,
   DivSubtitle,
   DivTitleInput,
-} from '../styles/styles';
+} from '../styles/home';
 
 import guarana from '../../public/images/guarana.jpg';
 import { ProductCard } from '../components/ProductCard';

@@ -21,7 +21,7 @@ export function Header() {
               Pedidos
             </button>
           </Link>
-          <Link href="/">
+          <Link href="kitchen">
             <button
               onClick={() => setClickButton('cozinha')}
               className={clickButton === 'cozinha' ? 'active' : ''}
