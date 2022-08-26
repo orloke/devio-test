@@ -36,8 +36,11 @@ export const DivContent = styled.div`
   .categories {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    column-gap: 2rem;
     @media (max-width: 1300px) {
-      gap: 2%;
+      justify-content: flex-start;
     }
     @media (max-width: 768px) {
       flex-direction: column;
@@ -51,7 +54,7 @@ export const DivContent = styled.div`
 
 export const Cards = styled.div`
   position: relative;
-  width: 250px;
+  width: 150px;
   height: 200px;
   border-radius: 10px;
   box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
@@ -78,9 +81,11 @@ export const DivSubtitle = styled.div`
 export const DivCards = styled.div`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1%;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  justify-content: space-between;
   @media (max-width: 1300px) {
-    justify-content: center;
+    justify-content: flex-start;
   }
   @media (max-width: 768px) {
     flex-direction: column;

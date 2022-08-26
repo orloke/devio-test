@@ -11,6 +11,9 @@ export const Container = styled.div`
 export const DivRequests = styled.div`
   display: flex;
   justify-content: space-between;
+  span {
+    font-size: 0.7rem;
+  }
 `;
 
 export const TotalRequest = styled.div`

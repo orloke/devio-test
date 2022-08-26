@@ -5,10 +5,9 @@ interface props {
 }
 
 export const Card = styled.div<props>`
-  width: 250px;
-  height: 350px;
+  width: 150px;
+  height: 200px;
   position: relative;
-  margin-bottom: 2rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -17,8 +16,7 @@ export const Card = styled.div<props>`
   transition: transform 0.2s ease-out;
 
   &:hover {
-    transform: scale(1.2);
-    border: 2px solid green;
+    transform: scale(1.1);
     z-index: 1;
   }
   .selected {
@@ -43,16 +41,43 @@ export const Content = styled.div`
   height: 100%;
   background-color: #f5f8f5;
   border-radius: 10px;
+  position: relative;
+
+  .teste2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    background-color: transparent;
+    height: 70%;
+  }
+
+  .teste {
+    width: 100%;
+    height: 40%;
+    border-radius: 10px;
+    background-color: green;
+  }
+
+  .teste3 {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
   img {
-    width: 100%;
-    border-radius: 10px;
+    width: 50%;
+    margin: auto;
   }
 
   h4 {
     color: black;
-    margin-top: 0.5rem;
     margin-bottom: 0;
+    font-size: 1.2rem;
   }
 
   strong {

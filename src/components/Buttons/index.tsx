@@ -4,10 +4,11 @@ interface PropsButton {
   text: string;
   variant: string;
   ml?: number;
+  onclick?: () => void;
 }
-export function Button({ variant, text, ml }: PropsButton) {
+export function Button({ variant, text, ml, onclick }: PropsButton) {
   return (
-    <DivButton variant={variant} ml={ml}>
+    <DivButton onClick={onclick} variant={variant} ml={ml}>
       {text}
     </DivButton>
   );

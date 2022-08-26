@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import {
   Cards,
   Container,
@@ -13,8 +14,20 @@ import guarana from '../../public/images/guarana.jpg';
 import { ProductCard } from '../components/ProductCard';
 import { Button } from '../components/Buttons';
 import { ModalRequests } from '../components/ModalRequests';
+import { Products } from '../types';
+import { getProducts } from '../service';
 
 function Home() {
+  const [products, setProducts] = useState([] as Products[]);
+
+  useEffect(() => {
+    const takeProducts = async () => {
+      const response = await getProducts();
+      setProducts(response);
+    };
+    takeProducts();
+  }, []);
+
   return (
     <Container>
       <ModalRequests />
@@ -52,54 +65,15 @@ function Home() {
           <p>Selecione um produto para adicionar ao seu pedido</p>
         </DivSubtitle>
         <DivCards>
-          <ProductCard
-            image="/images/hamburguer.jpg"
-            title="Smash da casa"
-            description="2x hamburguers de 200g"
-            price="30,20"
-          />
-          <ProductCard
-            image="/images/hamburguer.jpg"
-            title="Smash da casa"
-            description="2x hamburguers de 200g"
-            price="30,20"
-          />
-          <ProductCard
-            image="/images/hamburguer.jpg"
-            title="Smash da casa"
-            description="2x hamburguers de 200g"
-            price="30,20"
-          />
-          <ProductCard
-            image="/images/hamburguer.jpg"
-            title="Smash da casa"
-            description="2x hamburguers de 200g"
-            price="30,20"
-          />
-          <ProductCard
-            image="/images/hamburguer.jpg"
-            title="Smash da casa"
-            description="2x hamburguers de 200g"
-            price="30,20"
-          />
-          <ProductCard
-            image="/images/hamburguer.jpg"
-            title="Smash da casa"
-            description="2x hamburguers de 200g"
-            price="30,20"
-          />
-          <ProductCard
-            image="/images/hamburguer.jpg"
-            title="Smash da casa"
-            description="2x hamburguers de 200g"
-            price="30,20"
-          />
-          <ProductCard
-            image="/images/hamburguer.jpg"
-            title="Smash da casa"
-            description="2x hamburguers de 200g"
-            price="30,20"
-          />
+          {products.map(item => (
+            <ProductCard
+              key={item.id}
+              image="/images/hamburguer.png"
+              title={item.title}
+              description={item.description}
+              price={item.price}
+            />
+          ))}
         </DivCards>
       </DivContent>
       <DivButtons>

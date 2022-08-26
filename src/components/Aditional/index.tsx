@@ -1,20 +1,42 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { formatValue } from '../../helps';
+import { selectAdditioanl } from '../../store/products';
 import { DivAdditional, DivCheckbox } from './styles';
 
-export function Aditional() {
-  const [checked, setChecked] = useState(true);
+interface PropsAditional {
+  title: string;
+  description: string;
+  price: number;
+}
+
+export function Aditional({ title, description, price }: PropsAditional) {
+  const dispatch = useDispatch();
+  const newPrice = formatValue(price);
+
+  const [checked, setChecked] = useState(false);
+
+  const takeAditional = (name: string) => {
+    setChecked(!checked);
+    if (!checked) {
+      dispatch(selectAdditioanl({ price, title: name }));
+    } else {
+      dispatch(selectAdditioanl({ price: -price, title: name }));
+    }
+  };
+
   return (
     <DivAdditional>
       <div className="cardImg">
         <img src="/images/guarana.jpg" alt="refrigerente" />
       </div>
       <div className="descriptionAditional">
-        <span>Bacon</span>
-        <span>10g</span>
+        <span>{title}</span>
+        <span>{description}</span>
       </div>
       <div className="divValue">
-        <span>R$ 1,00</span>
-        <DivCheckbox onClick={() => setChecked(!checked)} checked={checked}>
+        <span>R$ {newPrice}</span>
+        <DivCheckbox onClick={() => takeAditional(title)} checked={checked}>
           <div className="active" />
         </DivCheckbox>
       </div>

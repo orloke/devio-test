@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "category": "hamburger",
+      "title": "Smash da casa",
+      "price": 30.50,
+      "description": "Esse é muito bom"
+    },
+    {
+      "id": 2,
+      "category": "hamburger",
+      "title": "Pão alemão",
+      "price": 31.50,
+      "description": "Esse é 7 a 1 de sabor"
+    },
+    {
+      "id": 3,
+      "category": "refrigerante",
+      "title": "Guarana",
+      "price": 5.50,
+      "description": "2 litros"
+    },
+    {
+      "id": 4,
+      "category": "refrigerante",
+      "title": "Coca-Cola",
+      "price": 6.50,
+      "description": "2 litros"
+    },
+    {
+      "id": 5,
+      "category": "sobremessa",
+      "title": "açai",
+      "price": 16.50,
+      "description": "500 ml"
+    },
+    {
+      "id": 6,
+      "category": "sobremessa",
+      "title": "sorverte",
+      "price": 23.00,
+      "description": "2 litros"
+    }
+  ]
+}
