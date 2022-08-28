@@ -6,7 +6,7 @@ interface props {
 
 export const Card = styled.div<props>`
   width: 150px;
-  height: 200px;
+  height: 180px;
   position: relative;
   border-radius: 10px;
   display: flex;
@@ -14,6 +14,9 @@ export const Card = styled.div<props>`
   cursor: pointer;
   box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-out;
+  @media (max-width: 768px) {
+    margin: auto;
+  }
 
   &:hover {
     transform: scale(1.1);
@@ -81,8 +84,7 @@ export const Content = styled.div`
   }
 
   strong {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+    margin: 0.5rem 0;
     font-weight: bold;
   }
 `;

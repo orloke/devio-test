@@ -8,7 +8,7 @@ interface PropsOrderSummary {
   additional: {
     title: string;
     price: number;
-  };
+  }[];
 }
 
 export function OrderSummary({
@@ -17,23 +17,26 @@ export function OrderSummary({
   total,
   additional,
 }: PropsOrderSummary) {
-  const newPrice = formatValue(additional.price);
+  const newTotal = formatValue(total);
   return (
     <Container>
       <DivRequests>
         <h6>{title}</h6>
         <h6>{price}</h6>
       </DivRequests>
-      {additional.title !== '' && (
-        <DivRequests>
-          <span>{additional.title}</span>
-          <span>{newPrice}</span>
-        </DivRequests>
+      {additional.map(
+        item =>
+          item.title !== '' && (
+            <DivRequests key={item.title}>
+              <span>{item.title}</span>
+              <span>{formatValue(item.price)}</span>
+            </DivRequests>
+          ),
       )}
 
       <TotalRequest>
         <h6>Total do pedido:</h6>
-        <h5>{total}</h5>
+        <h5>{newTotal}</h5>
       </TotalRequest>
     </Container>
   );

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { formatValue } from '../../helps';
-import { selectAdditioanl } from '../../store/products';
+import { removeAdditioanl, selectAdditioanl } from '../../store/products';
 import { DivAdditional, DivCheckbox } from './styles';
 
 interface PropsAditional {
@@ -21,7 +21,7 @@ export function Aditional({ title, description, price }: PropsAditional) {
     if (!checked) {
       dispatch(selectAdditioanl({ price, title: name }));
     } else {
-      dispatch(selectAdditioanl({ price: -price, title: name }));
+      dispatch(removeAdditioanl({ title: name }));
     }
   };
 

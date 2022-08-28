@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { formatValue } from '../../helps';
 import { RootState } from '../../store';
-import { changeSelect, setModal, takeProduct } from '../../store/products';
+import { removeAdditioanl, setModal, takeProduct } from '../../store/products';
 import { Card, Content } from './styles';
 
 interface PropsCard {
@@ -13,16 +14,18 @@ interface PropsCard {
 
 export function ProductCard({ image, title, description, price }: PropsCard) {
   const dispatch = useDispatch();
-  const teste = useSelector((state: RootState) => state.productsSlice.select);
-  const [select, setSelect] = useState(false);
+  const newPrice = formatValue(price);
   const handleCard = () => {
-    setSelect(true);
     dispatch(setModal(true));
-    dispatch(changeSelect(title));
     dispatch(takeProduct({ title, description, price, image }));
+    dispatch(removeAdditioanl('removeAll'));
   };
+
+  const market = useSelector((state: RootState) => state.productsSlice.market);
+  const select = market.map(item => item.title);
+
   return (
-    <Card click={select && teste === title} onClick={() => handleCard()}>
+    <Card click={select.includes(title)} onClick={() => handleCard()}>
       <Content>
         <div className="teste2">
           <img src={image} alt={title} />
@@ -31,7 +34,7 @@ export function ProductCard({ image, title, description, price }: PropsCard) {
         <div className="teste3">
           <h4>{title}</h4>
           <small>{description}</small>
-          <strong>R$ {price.toString().replace('.', ',')}0</strong>
+          <strong>{newPrice}</strong>
         </div>
       </Content>
       <div className="selected">Selecionado</div>

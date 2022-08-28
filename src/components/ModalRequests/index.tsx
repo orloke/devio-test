@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatValue } from '../../helps';
 import { RootState } from '../../store';
-import { setModal } from '../../store/products';
+import { selectProduct, setModal } from '../../store/products';
 import { Aditional } from '../Aditional';
 import { Button } from '../Buttons';
 import { Observation } from '../Observation';
@@ -15,6 +15,8 @@ export function ModalRequests() {
   const additional = useSelector(
     (state: RootState) => state.productsSlice.additional,
   );
+  const priceAdditional = additional.reduce((a, b) => a + b.price, 0);
+
   const [qtd, setQtd] = useState(1);
 
   const handleQtd = (operation: string) => {
@@ -35,6 +37,20 @@ export function ModalRequests() {
   const price = formatValue(produto.price);
 
   const handleClose = () => dispatch(setModal(false));
+
+  const handleMarket = () => {
+    dispatch(
+      selectProduct({
+        title: produto.title,
+        price: produto.price,
+        description: produto.description,
+        additional,
+        qtd,
+        total: qtd * produto.price + priceAdditional,
+      }),
+    );
+    dispatch(setModal(false));
+  };
 
   return (
     <Modal show={showModal} onHide={handleClose}>
@@ -83,13 +99,22 @@ export function ModalRequests() {
         <OrderSummary
           title={produto.title}
           price={price}
-          total={qtd * produto.price + additional.price}
+          total={qtd * produto.price + priceAdditional}
           additional={additional}
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="outline" text="cancelar" />
-        <Button variant="fill" text="Finalizar pedido" ml={2} />
+        <Button
+          onclick={() => handleClose()}
+          variant="outline"
+          text="cancelar"
+        />
+        <Button
+          onclick={() => handleMarket()}
+          variant="fill"
+          text="Finalizar pedido"
+          ml={2}
+        />
       </Modal.Footer>
     </Modal>
   );

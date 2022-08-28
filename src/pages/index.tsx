@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import {
   Cards,
@@ -6,8 +7,10 @@ import {
   DivButtons,
   DivCards,
   DivContent,
+  DivRequest,
   DivSubtitle,
   DivTitleInput,
+  TotalRequest,
 } from '../styles/home';
 
 import guarana from '../../public/images/guarana.jpg';
@@ -16,9 +19,20 @@ import { Button } from '../components/Buttons';
 import { ModalRequests } from '../components/ModalRequests';
 import { Products } from '../types';
 import { getProducts } from '../service';
+import { RootState } from '../store';
+import { formatValue } from '../helps';
+import { OrderSummaryAll } from '../components/OrderSummaryAll';
 
 function Home() {
   const [products, setProducts] = useState([] as Products[]);
+  const marketProduct = useSelector(
+    (state: RootState) => state.productsSlice.market,
+  );
+
+  console.log(marketProduct);
+
+  const totalRequests = marketProduct.reduce((a, b) => a + b.total, 0);
+  const newTotalRequests = formatValue(totalRequests);
 
   useEffect(() => {
     const takeProducts = async () => {
@@ -75,6 +89,27 @@ function Home() {
             />
           ))}
         </DivCards>
+      </DivContent>
+      <DivContent>
+        <h2>Pedidos</h2>
+        <DivRequest>
+          {marketProduct.map(
+            item =>
+              item.title !== '' && (
+                <OrderSummaryAll
+                  key={item.title}
+                  title={item.title}
+                  qtd={item.qtd}
+                  price={item.price}
+                  additional={item.additional}
+                />
+              ),
+          )}
+          <TotalRequest>
+            <h6>Total do pedido:</h6>
+            <h5>{newTotalRequests}</h5>
+          </TotalRequest>
+        </DivRequest>
       </DivContent>
       <DivButtons>
         <Button variant="outline" text="cancelar" />

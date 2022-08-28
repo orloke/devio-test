@@ -1,25 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface Product {
-  title: '';
-  description: '';
-  price: 0;
-  image: '';
-}
-
 const initialState = {
   show: false,
-  select: '',
   product: {
     title: '',
     description: '',
     price: 0,
     image: '',
   },
-  additional: {
-    price: 0,
-    title: '',
-  },
+  additional: [
+    {
+      price: 0,
+      title: '',
+    },
+  ],
+  market: [
+    {
+      title: '',
+      description: '',
+      price: 0,
+      image: '',
+      additional: [{ price: 0, title: '' }],
+      qtd: 0,
+      total: 0,
+    },
+  ],
 };
 
 const productsSlice = createSlice({
@@ -29,19 +34,47 @@ const productsSlice = createSlice({
     setModal(state, action) {
       state.show = action.payload;
     },
-    changeSelect(state, action) {
-      state.select = action.payload;
-    },
     takeProduct(state, action) {
       state.product = action.payload;
     },
     selectAdditioanl(state, action) {
-      state.additional.price += action.payload.price;
-      state.additional.title = action.payload.title;
+      if (action.payload.title !== '') {
+        Object.assign(state, {
+          additional: [...state.additional, action.payload],
+        });
+      }
+    },
+    removeAdditioanl(state, action) {
+      if (action.payload === 'removeAll') {
+        state.additional = [];
+      }
+      const a = state.additional.filter(
+        item => item.title !== action.payload.title,
+      );
+      state.additional = a;
+    },
+    selectProduct(state, action) {
+      if (action.payload.title !== '') {
+        Object.assign(state, {
+          market: [...state.market, action.payload],
+        });
+      }
+    },
+    removeProduct(state, action) {
+      const a = state.market.filter(
+        item => item.title !== action.payload.title,
+      );
+      state.market = a;
     },
   },
 });
 
-export const { setModal, changeSelect, takeProduct, selectAdditioanl } =
-  productsSlice.actions;
+export const {
+  setModal,
+  takeProduct,
+  selectAdditioanl,
+  removeAdditioanl,
+  selectProduct,
+  removeProduct,
+} = productsSlice.actions;
 export default productsSlice.reducer;

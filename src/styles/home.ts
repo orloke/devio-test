@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 70%;
+  max-width: 90%;
   margin: 0 auto;
   @media (max-width: 768px) {
     text-align: center;
@@ -43,11 +43,13 @@ export const DivContent = styled.div`
       justify-content: flex-start;
     }
     @media (max-width: 768px) {
-      flex-direction: column;
+      /* flex-direction: column;
       gap: 1rem;
       width: 100%;
       text-align: center;
-      align-items: center;
+      align-items: center; */
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 `;
@@ -62,6 +64,9 @@ export const Cards = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 768px) {
+    margin: auto;
+  }
   p {
     font-weight: bold;
     font-size: 1.4rem;
@@ -88,8 +93,8 @@ export const DivCards = styled.div`
     justify-content: flex-start;
   }
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -97,4 +102,27 @@ export const DivButtons = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 3rem;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+export const DivRequest = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #a8a8a8;
+  border-radius: 10px;
+  padding: 1rem;
+`;
+
+export const TotalRequest = styled.div`
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  h6 {
+    margin-top: 0.5rem;
+  }
+  h5 {
+    margin-left: auto;
+  }
 `;
