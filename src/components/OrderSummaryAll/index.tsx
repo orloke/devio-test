@@ -23,7 +23,6 @@ export function OrderSummaryAll({
   const newPrice = price * qtd;
   const deleteRequest = (name: string) => {
     dispatch(removeProduct({ title: name }));
-    console.log('teste');
   };
   return (
     <Container>

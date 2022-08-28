@@ -29,8 +29,6 @@ function Home() {
     (state: RootState) => state.productsSlice.market,
   );
 
-  console.log(marketProduct);
-
   const totalRequests = marketProduct.reduce((a, b) => a + b.total, 0);
   const newTotalRequests = formatValue(totalRequests);
 
