@@ -1,30 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Additional, Market, Produto } from '../../types';
 
 const initialState = {
   show: false,
-  product: {
-    title: '',
-    description: '',
-    price: 0,
-    image: '',
-  },
-  additional: [
-    {
-      price: 0,
-      title: '',
-    },
-  ],
-  market: [
-    {
-      title: '',
-      description: '',
-      price: 0,
-      image: '',
-      additional: [{ price: 0, title: '' }],
-      qtd: 0,
-      total: 0,
-    },
-  ],
+  product: {} as Produto,
+  additional: [] as Additional[],
+  market: [] as Market[],
 };
 
 const productsSlice = createSlice({
@@ -61,8 +42,11 @@ const productsSlice = createSlice({
       }
     },
     removeProduct(state, action) {
+      if (action.payload === 'removeAll') {
+        state.market = [];
+      }
       const a = state.market.filter(
-        item => item.title !== action.payload.title,
+        item => item.product.title !== action.payload.title,
       );
       state.market = a;
     },

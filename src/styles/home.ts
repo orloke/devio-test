@@ -118,7 +118,7 @@ export const DivRequest = styled.div`
 export const TotalRequest = styled.div`
   margin-top: 1rem;
   display: flex;
-  flex-direction: column;
+  width: 100%;
   h6 {
     margin-top: 0.5rem;
   }

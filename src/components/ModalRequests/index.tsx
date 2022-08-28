@@ -34,19 +34,25 @@ export function ModalRequests() {
     (state: RootState) => state.productsSlice.product,
   );
 
-  const price = formatValue(produto.price);
+  const price = formatValue(produto.price) as string;
 
-  const handleClose = () => dispatch(setModal(false));
+  const handleClose = () => {
+    setQtd(1);
+    dispatch(setModal(false));
+  };
 
   const handleMarket = () => {
+    setQtd(1);
     dispatch(
       selectProduct({
-        title: produto.title,
-        price: produto.price,
-        description: produto.description,
+        product: {
+          title: produto.title,
+          price: produto.price,
+          description: produto.description,
+          qtd,
+          total: qtd * produto.price + priceAdditional,
+        },
         additional,
-        qtd,
-        total: qtd * produto.price + priceAdditional,
       }),
     );
     dispatch(setModal(false));

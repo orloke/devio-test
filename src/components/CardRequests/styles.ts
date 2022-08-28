@@ -10,13 +10,22 @@ interface PropsButton {
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 70px;
+  min-height: 200px;
   box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
   border-radius: 10px;
+  .detailsObservation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .imageDetails {
+    display: flex;
+  }
 
   img {
     border-radius: 10px;
+    width: 20%;
   }
 `;
 
@@ -36,7 +45,7 @@ export const DivDetails = styled.div`
 
 export const DivButtons = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-left: auto;
 `;
 

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import {
   Cards,
@@ -17,20 +17,16 @@ import guarana from '../../public/images/guarana.jpg';
 import { ProductCard } from '../components/ProductCard';
 import { Button } from '../components/Buttons';
 import { ModalRequests } from '../components/ModalRequests';
-import { Products } from '../types';
+import { Produto } from '../types';
 import { getProducts } from '../service';
 import { RootState } from '../store';
 import { formatValue } from '../helps';
 import { OrderSummaryAll } from '../components/OrderSummaryAll';
+import { removeProduct } from '../store/products';
 
 function Home() {
-  const [products, setProducts] = useState([] as Products[]);
-  const marketProduct = useSelector(
-    (state: RootState) => state.productsSlice.market,
-  );
-
-  const totalRequests = marketProduct.reduce((a, b) => a + b.total, 0);
-  const newTotalRequests = formatValue(totalRequests);
+  const [products, setProducts] = useState([] as Produto[]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const takeProducts = async () => {
@@ -39,6 +35,17 @@ function Home() {
     };
     takeProducts();
   }, []);
+
+  const marketProduct = useSelector(
+    (state: RootState) => state.productsSlice.market,
+  );
+
+  const totalRequests = marketProduct.reduce((a, b) => a + b.product.price, 0);
+  const newTotalRequests = formatValue(totalRequests);
+
+  const cancelRequest = () => {
+    dispatch(removeProduct('removeAll'));
+  };
 
   return (
     <Container>
@@ -90,27 +97,35 @@ function Home() {
       </DivContent>
       <DivContent>
         <h2>Pedidos</h2>
-        <DivRequest>
-          {marketProduct.map(
-            item =>
-              item.title !== '' && (
-                <OrderSummaryAll
-                  key={item.title}
-                  title={item.title}
-                  qtd={item.qtd}
-                  price={item.price}
-                  additional={item.additional}
-                />
-              ),
-          )}
-          <TotalRequest>
-            <h6>Total do pedido:</h6>
-            <h5>{newTotalRequests}</h5>
-          </TotalRequest>
-        </DivRequest>
+        {marketProduct.length === 0 ? (
+          <p>Faça um pedido!</p>
+        ) : (
+          <DivRequest>
+            {marketProduct.map(
+              item =>
+                item.product.title !== '' && (
+                  <OrderSummaryAll
+                    key={item.product.title}
+                    title={item.product.title}
+                    qtd={item.product.qtd}
+                    price={item.product.price}
+                    additional={item.additional}
+                  />
+                ),
+            )}
+            <TotalRequest>
+              <h6>Total do pedido:</h6>
+              <h5>{newTotalRequests}</h5>
+            </TotalRequest>
+          </DivRequest>
+        )}
       </DivContent>
       <DivButtons>
-        <Button variant="outline" text="cancelar" />
+        <Button
+          variant="outline"
+          text="cancelar"
+          onclick={() => cancelRequest()}
+        />
         <Button variant="fill" text="Finalizar pedido" ml={2} />
       </DivButtons>
     </Container>

@@ -4,6 +4,8 @@ export const Container = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 1rem;
+
   button {
     border: none;
     background-color: #e6e6e6;
@@ -14,10 +16,12 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  border-bottom: 1px dashed #a8a8a8;
-  padding: 1rem 0;
   width: 100%;
-  margin-right: 1rem;
+  margin-right: 2%;
+  border-bottom: 1px dashed #a8a8a8;
+  h6 {
+    margin: 0;
+  }
 `;
 
 export const DivRequests = styled.div`
