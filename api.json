@@ -37,10 +37,31 @@
     },
     {
       "id": 6,
-      "category": "sobremessa",
-      "title": "sorverte",
+      "category": "hamburger",
+      "title": "Espetinho",
       "price": 23,
-      "description": "2 litros"
+      "description": "Com muita carne"
+    },
+    {
+      "id": 7,
+      "category": "hamburger",
+      "title": "Farofa",
+      "price": 10,
+      "description": "Muita Farinha"
+    },
+    {
+      "id": 8,
+      "category": "Cerveja",
+      "title": "Skol",
+      "price": 23,
+      "description": "350 ml"
+    },
+    {
+      "id": 9,
+      "category": "Cerveja",
+      "title": "Heineken",
+      "price": 23,
+      "description": "350 ml"
     }
   ]
 }

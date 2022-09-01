@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   Cards,
   Container,
@@ -25,16 +26,19 @@ import { OrderSummaryAll } from '../components/OrderSummaryAll';
 import { removeProduct } from '../store/products';
 
 function Home() {
-  const [products, setProducts] = useState([] as Produto[]);
   const dispatch = useDispatch();
+  const [products, setProducts] = useState([] as Produto[]);
+  const router = useRouter();
+  const [teste, setTeste] = useState('');
 
   useEffect(() => {
     const takeProducts = async () => {
-      const response = await getProducts();
+      const response = await getProducts(teste);
       setProducts(response);
     };
+
     takeProducts();
-  }, []);
+  }, [teste]);
 
   const marketProduct = useSelector(
     (state: RootState) => state.productsSlice.market,
@@ -52,7 +56,12 @@ function Home() {
       <ModalRequests />
       <DivTitleInput>
         <h1>Seja bem vindo!</h1>
-        <input type="text" placeholder="O que você procura?" />
+        <input
+          type="text"
+          placeholder="O que você procura?"
+          value={teste}
+          onChange={e => setTeste(e.target.value)}
+        />
       </DivTitleInput>
       <DivContent>
         <DivSubtitle>
@@ -87,6 +96,7 @@ function Home() {
           {products.map(item => (
             <ProductCard
               key={item.id}
+              id={item.id}
               image="/images/hamburguer.png"
               title={item.title}
               description={item.description}
@@ -107,6 +117,7 @@ function Home() {
                   <OrderSummaryAll
                     key={item.product.title}
                     title={item.product.title}
+                    id={item.product.id}
                     qtd={item.product.qtd}
                     price={item.product.price}
                     additional={item.additional}
@@ -126,7 +137,13 @@ function Home() {
           text="cancelar"
           onclick={() => cancelRequest()}
         />
-        <Button variant="fill" text="Finalizar pedido" ml={2} />
+        <Button
+          disabled={marketProduct.length === 0}
+          variant="fill"
+          text="Finalizar pedido"
+          ml={2}
+          onclick={() => router.push('/payment')}
+        />
       </DivButtons>
     </Container>
   );

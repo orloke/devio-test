@@ -12,12 +12,12 @@ import { DivAdditional, DivRequests } from './styles';
 
 export function ModalRequests() {
   const dispatch = useDispatch();
+  const [observation, setObservation] = useState('');
+  const [qtd, setQtd] = useState(1);
   const additional = useSelector(
     (state: RootState) => state.productsSlice.additional,
   );
   const priceAdditional = additional.reduce((a, b) => a + b.price, 0);
-
-  const [qtd, setQtd] = useState(1);
 
   const handleQtd = (operation: string) => {
     if (operation === '+') {
@@ -42,7 +42,6 @@ export function ModalRequests() {
   };
 
   const handleMarket = () => {
-    setQtd(1);
     dispatch(
       selectProduct({
         product: {
@@ -51,10 +50,14 @@ export function ModalRequests() {
           description: produto.description,
           qtd,
           total: qtd * produto.price + priceAdditional,
+          observation,
+          id: produto.id,
         },
         additional,
       }),
     );
+    setQtd(1);
+    setObservation('');
     dispatch(setModal(false));
   };
 
@@ -99,6 +102,9 @@ export function ModalRequests() {
           marginTop={1}
           placeholder="Adicione uma observação ao pedido"
           rows={4}
+          readonly={false}
+          changeText={observation}
+          onchange={setObservation}
         >
           <h4>Observações</h4>
         </Observation>

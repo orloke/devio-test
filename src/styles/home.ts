@@ -34,11 +34,10 @@ export const DivContent = styled.div`
   flex-direction: column;
   margin: 3rem 0%;
   .categories {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
     row-gap: 2rem;
-    column-gap: 2rem;
     @media (max-width: 1300px) {
       justify-content: flex-start;
     }
@@ -84,11 +83,11 @@ export const DivSubtitle = styled.div`
 `;
 
 export const DivCards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
   row-gap: 2rem;
-  column-gap: 2rem;
-  justify-content: space-between;
+
   @media (max-width: 1300px) {
     justify-content: flex-start;
   }

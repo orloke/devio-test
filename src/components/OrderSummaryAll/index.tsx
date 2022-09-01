@@ -6,6 +6,7 @@ import { Container, Content, DivRequests } from './styles';
 interface PropsOrderSummary {
   title: string;
   price: number;
+  id: number;
   qtd: number;
   additional: {
     title: string;
@@ -18,11 +19,12 @@ export function OrderSummaryAll({
   price,
   additional,
   qtd,
+  id,
 }: PropsOrderSummary) {
   const dispatch = useDispatch();
   const newPrice = price * qtd;
-  const deleteRequest = (name: string) => {
-    dispatch(removeProduct({ title: name }));
+  const deleteRequest = (idProduct: number) => {
+    dispatch(removeProduct({ id: idProduct }));
   };
   return (
     <Container>
@@ -45,7 +47,7 @@ export function OrderSummaryAll({
             ),
         )}
       </Content>
-      <button type="button" onClick={() => deleteRequest(title)}>
+      <button type="button" onClick={() => deleteRequest(id)}>
         x
       </button>
     </Container>

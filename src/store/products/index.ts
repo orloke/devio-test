@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Additional, Market, Produto } from '../../types';
+import { Additional, Finished, Market, Produto } from '../../types';
 
 const initialState = {
   show: false,
   product: {} as Produto,
   additional: [] as Additional[],
   market: [] as Market[],
+  finished: [] as Finished[],
+  delivery: [] as Finished[],
 };
 
 const productsSlice = createSlice({
@@ -46,9 +48,35 @@ const productsSlice = createSlice({
         state.market = [];
       }
       const a = state.market.filter(
-        item => item.product.title !== action.payload.title,
+        item => item.product.id !== action.payload.id,
       );
       state.market = a;
+    },
+    toFinished(state, action) {
+      if (action.payload.title !== '') {
+        const marketFinishedId = {
+          ...action.payload,
+          id: state.finished.length + 1,
+        };
+        Object.assign(state, {
+          finished: [...state.finished, marketFinishedId],
+        });
+      }
+    },
+    removeFinished(state, action) {
+      const a = state.finished.filter(item => item.id !== action.payload.id);
+      state.finished = a;
+    },
+    toDelivery(state, action) {
+      if (action.payload.title !== '') {
+        Object.assign(state, {
+          delivery: [...state.delivery, action.payload],
+        });
+      }
+    },
+    removeDelivery(state, action) {
+      const a = state.delivery.filter(item => item.id !== action.payload.id);
+      state.delivery = a;
     },
   },
 });
@@ -60,5 +88,9 @@ export const {
   removeAdditioanl,
   selectProduct,
   removeProduct,
+  toFinished,
+  removeFinished,
+  toDelivery,
+  removeDelivery,
 } = productsSlice.actions;
 export default productsSlice.reducer;

@@ -1,16 +1,103 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { CardRequests } from '../../components/CardRequests';
-import { Container } from '../../styles/kitchen';
+import { RootState } from '../../store';
+import {
+  removeDelivery,
+  removeFinished,
+  toDelivery,
+} from '../../store/products';
+import { Button, Container, Content, DivButtons } from '../../styles/kitchen';
 
 export default function Kitchen() {
+  const dispatch = useDispatch();
+  const marketRequests = useSelector(
+    (state: RootState) => state.productsSlice.finished,
+  );
+
+  const newList = [...marketRequests];
+
+  const handleDelivery = (idMarket: number) => {
+    const request = newList.filter(d => d.id === idMarket);
+    dispatch(removeFinished({ id: idMarket }));
+    dispatch(toDelivery(request[0]));
+  };
+  const deleteMarket = (idMarket: number) => {
+    dispatch(removeFinished({ id: idMarket }));
+  };
+  const deleteDelivery = (idMarket: number) => {
+    dispatch(removeDelivery({ id: idMarket }));
+  };
+
+  const delivery = useSelector(
+    (state: RootState) => state.productsSlice.delivery,
+  );
+
   return (
     <Container>
       <div className="requests">
         <h3>Preparando:</h3>
-        <CardRequests displayButtonConfirm="block" />
+        {marketRequests.map(item => (
+          <Content key={item.name}>
+            <h5>Cliente: {item.name}</h5>
+            {item.market.map(product => (
+              <CardRequests
+                key={product.product.title}
+                qtd={product.product.qtd}
+                title={product.product.title}
+                additional={product.additional}
+                observation={product.product.observation}
+              />
+            ))}
+            <DivButtons>
+              <Button
+                display="block"
+                backgroundColor="00890059"
+                color="green"
+                onClick={() => handleDelivery(item.id)}
+              >
+                ✓
+              </Button>
+              <Button
+                backgroundColor="#eacbcb"
+                color="red"
+                onClick={() => {
+                  deleteMarket(item.id);
+                }}
+              >
+                X
+              </Button>
+            </DivButtons>
+          </Content>
+        ))}
       </div>
       <div className="requestsFinish">
         <h3>Pronto:</h3>
-        <CardRequests displayButtonConfirm="none" />
+        {delivery.map(item => (
+          <Content key={item.name}>
+            <h5>Cliente: {item.name}</h5>
+            {item.market.map(product => (
+              <CardRequests
+                key={product.product.title}
+                qtd={product.product.qtd}
+                title={product.product.title}
+                additional={product.additional}
+                observation={product.product.observation}
+              />
+            ))}
+            <DivButtons>
+              <Button
+                backgroundColor="#eacbcb"
+                color="red"
+                margin="auto"
+                onClick={() => {
+                  deleteDelivery(item.id);
+                }}
+              >
+                X
+              </Button>
+            </DivButtons>
+          </Content>
+        ))}
       </div>
     </Container>
   );

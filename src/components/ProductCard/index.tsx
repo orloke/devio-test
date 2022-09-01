@@ -10,22 +10,29 @@ interface PropsCard {
   title: string;
   description: string;
   price: number;
+  id: number;
 }
 
-export function ProductCard({ image, title, description, price }: PropsCard) {
+export function ProductCard({
+  image,
+  title,
+  description,
+  price,
+  id,
+}: PropsCard) {
   const dispatch = useDispatch();
   const newPrice = formatValue(price);
   const handleCard = () => {
     dispatch(setModal(true));
-    dispatch(takeProduct({ title, description, price, image }));
+    dispatch(takeProduct({ title, description, price, image, id }));
     dispatch(removeAdditioanl('removeAll'));
   };
 
   const market = useSelector((state: RootState) => state.productsSlice.market);
-  const select = market.map(item => item.title);
+  const select = market.map(item => item.product.id);
 
   return (
-    <Card click={select.includes(title)} onClick={() => handleCard()}>
+    <Card click={select.includes(id)} onClick={() => handleCard()}>
       <Content>
         <div className="teste2">
           <img src={image} alt={title} />

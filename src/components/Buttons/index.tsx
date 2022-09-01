@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { DivButton } from './styles';
 
 interface PropsButton {
@@ -5,10 +6,11 @@ interface PropsButton {
   variant: string;
   ml?: number;
   onclick?: () => void;
+  disabled?: boolean;
 }
-export function Button({ variant, text, ml, onclick }: PropsButton) {
+export function Button({ variant, text, ml, onclick, disabled }: PropsButton) {
   return (
-    <DivButton onClick={onclick} variant={variant} ml={ml}>
+    <DivButton disabled={disabled} onClick={onclick} variant={variant} ml={ml}>
       {text}
     </DivButton>
   );

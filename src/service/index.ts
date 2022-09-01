@@ -1,13 +1,16 @@
 import axios from 'axios';
-import { Products } from '../types';
+import { Produto } from '../types';
 
 const baseApi = axios.create({
   baseURL: 'http://localhost:3004',
 });
 
-export const getProducts = async (): Promise<Products[]> => {
+export const getProducts = async (search: string): Promise<Produto[]> => {
   try {
-    const response = await baseApi.get('/products');
+    if (search === undefined) {
+      search = '';
+    }
+    const response = await baseApi.get(`/products?q=${search}`);
     return response.data;
   } catch (error) {
     return Promise.reject(error);

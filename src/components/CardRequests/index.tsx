@@ -1,41 +1,43 @@
-import { Observation } from '../Observation';
-import { Button, Container, DivButtons, DivDetails } from './styles';
+import { useDispatch } from 'react-redux';
+
+import { Additional } from '../../types';
+import { Container, DivDetails } from './styles';
 
 interface PropsCardRequest {
-  displayButtonConfirm: string;
+  title: string;
+  qtd: number;
+  additional: Additional[];
+  observation: string;
 }
 
-export function CardRequests({ displayButtonConfirm }: PropsCardRequest) {
+export function CardRequests({
+  title,
+  qtd,
+  additional,
+  observation,
+}: PropsCardRequest) {
+  const dispatch = useDispatch();
+
   return (
     <Container>
       <div className="detailsObservation">
         <div className="imageDetails">
-          <img src="/images/hamburguer.jpg" alt="pedido" />
           <DivDetails>
-            <h5>201-Ricardo</h5>
-            <span>1x hamburguer</span>
+            <h5>
+              {qtd}x {title}
+            </h5>
+            <div className="additionalDetails">
+              <span>Adicionais: </span>
+              {additional.map((item, index) => (
+                <span key={item.title}>
+                  {item.title}
+                  {index < additional.length - 1 ? ', ' : ''}
+                </span>
+              ))}
+            </div>
+            {observation && <span>Observação: {observation} </span>}
           </DivDetails>
-          <DivButtons>
-            <Button
-              display={displayButtonConfirm}
-              backgroundColor="00890059"
-              color="green"
-            >
-              ✓
-            </Button>
-            <Button backgroundColor="#eacbcb" color="red" marginLeft={1}>
-              X
-            </Button>
-          </DivButtons>
         </div>
-        <Observation
-          marginTop={1}
-          marginBottom={1}
-          rows={1}
-          placeholder="Ex: retire a cebola"
-        >
-          <h6>Observações do pedido</h6>
-        </Observation>
       </div>
     </Container>
   );
