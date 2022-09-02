@@ -70,7 +70,7 @@ export function ModalRequests() {
         <DivRequests>
           <img
             className="imgRequest"
-            src="/images/hamburguer.jpg"
+            src={produto.image}
             alt="imagem do pedido"
           />
           <div className="descriptionRequest">
@@ -94,8 +94,18 @@ export function ModalRequests() {
             Selecione os ingredientes que você quer adicionar a mais no seu
             lanche
           </span>
-          <Aditional title="bacon" description="100g" price={2.0} />
-          <Aditional title="mussarela" description="100g" price={3.0} />
+          <Aditional
+            title="bacon"
+            description="100g"
+            price={2.0}
+            image="/images/bacon.png"
+          />
+          <Aditional
+            title="mussarela"
+            description="100g"
+            price={3.0}
+            image="/images/mussarela.png"
+          />
         </DivAdditional>
         <Observation
           marginBottom={1}

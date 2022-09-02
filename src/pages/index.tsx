@@ -14,31 +14,36 @@ import {
   TotalRequest,
 } from '../styles/home';
 
-import guarana from '../../public/images/guarana.jpg';
+import refrigerante from '../../public/images/refrigerante.png';
+import sobremesa from '../../public/images/sobremesa.png';
+import cerveja from '../../public/images/cerveja.png';
+import hamburger from '../../public/images/hamburguer2.png';
+import combo from '../../public/images/combo.png';
 import { ProductCard } from '../components/ProductCard';
 import { Button } from '../components/Buttons';
 import { ModalRequests } from '../components/ModalRequests';
 import { Produto } from '../types';
-import { getProducts } from '../service';
+import { getProducts, getProductsCategory } from '../service';
 import { RootState } from '../store';
 import { formatValue } from '../helps';
 import { OrderSummaryAll } from '../components/OrderSummaryAll';
 import { removeProduct } from '../store/products';
 
 function Home() {
-  const dispatch = useDispatch();
   const [products, setProducts] = useState([] as Produto[]);
   const router = useRouter();
-  const [teste, setTeste] = useState('');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const takeProducts = async () => {
-      const response = await getProducts(teste);
+      const response = await getProducts(search);
       setProducts(response);
     };
 
     takeProducts();
-  }, [teste]);
+  }, [search]);
+
+  const dispatch = useDispatch();
 
   const marketProduct = useSelector(
     (state: RootState) => state.productsSlice.market,
@@ -51,6 +56,11 @@ function Home() {
     dispatch(removeProduct('removeAll'));
   };
 
+  const searchCategory = async (categorie: string) => {
+    const response = await getProductsCategory(categorie);
+    return setProducts(response);
+  };
+
   return (
     <Container>
       <ModalRequests />
@@ -59,8 +69,8 @@ function Home() {
         <input
           type="text"
           placeholder="O que você procura?"
-          value={teste}
-          onChange={e => setTeste(e.target.value)}
+          value={search}
+          onChange={e => setSearch(e.target.value)}
         />
       </DivTitleInput>
       <DivContent>
@@ -69,21 +79,40 @@ function Home() {
           <p>Navegue por categorias</p>
         </DivSubtitle>
         <div className="categories">
-          <Cards>
-            <Image width={100} height={150} src={guarana} alt="Refrigerente " />
-            <p>Combos</p>
+          <Cards onClick={() => searchCategory('hamburger')}>
+            <Image
+              width={100}
+              height={100}
+              src={hamburger}
+              alt="Refrigerente "
+            />
+            <p>hamburger</p>
           </Cards>
-          <Cards>
-            <Image width={100} height={150} src={guarana} alt="Refrigerente " />
-            <p>Combos</p>
+          <Cards onClick={() => searchCategory('refrigerante')}>
+            <Image
+              width={140}
+              height={150}
+              src={refrigerante}
+              alt="Refrigerente "
+            />
+            <p>Refrigerante</p>
           </Cards>
-          <Cards>
-            <Image width={100} height={150} src={guarana} alt="Refrigerente " />
-            <p>Combos</p>
+          <Cards onClick={() => searchCategory('sobremessa')}>
+            <Image
+              width={100}
+              height={150}
+              src={sobremesa}
+              alt="Refrigerente "
+            />
+            <p>Sobremesa</p>
           </Cards>
-          <Cards>
-            <Image width={100} height={150} src={guarana} alt="Refrigerente " />
-            <p>Combos</p>
+          <Cards onClick={() => searchCategory('Cerveja')}>
+            <Image width={100} height={150} src={cerveja} alt="Refrigerente " />
+            <p>Cerveja</p>
+          </Cards>
+          <Cards onClick={() => searchCategory('')}>
+            <Image width={100} height={150} src={combo} alt="Refrigerente " />
+            <p>Todos</p>
           </Cards>
         </div>
       </DivContent>
@@ -93,16 +122,20 @@ function Home() {
           <p>Selecione um produto para adicionar ao seu pedido</p>
         </DivSubtitle>
         <DivCards>
-          {products.map(item => (
-            <ProductCard
-              key={item.id}
-              id={item.id}
-              image="/images/hamburguer.png"
-              title={item.title}
-              description={item.description}
-              price={item.price}
-            />
-          ))}
+          {products.length !== 0 ? (
+            products.map(item => (
+              <ProductCard
+                key={item.id}
+                id={item.id}
+                image={item.image}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+              />
+            ))
+          ) : (
+            <p>Produto não encontrado</p>
+          )}
         </DivCards>
       </DivContent>
       <DivContent>

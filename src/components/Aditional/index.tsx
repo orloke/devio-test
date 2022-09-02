@@ -8,9 +8,15 @@ interface PropsAditional {
   title: string;
   description: string;
   price: number;
+  image: string;
 }
 
-export function Aditional({ title, description, price }: PropsAditional) {
+export function Aditional({
+  title,
+  description,
+  price,
+  image,
+}: PropsAditional) {
   const dispatch = useDispatch();
   const newPrice = formatValue(price);
 
@@ -28,7 +34,7 @@ export function Aditional({ title, description, price }: PropsAditional) {
   return (
     <DivAdditional>
       <div className="cardImg">
-        <img src="/images/guarana.jpg" alt="refrigerente" />
+        <img src={image} alt={title} />
       </div>
       <div className="descriptionAditional">
         <span>{title}</span>

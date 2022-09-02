@@ -10,8 +10,12 @@ import { Button, Container, Content, DivButtons } from '../../styles/kitchen';
 
 export default function Kitchen() {
   const dispatch = useDispatch();
+
   const marketRequests = useSelector(
     (state: RootState) => state.productsSlice.finished,
+  );
+  const delivery = useSelector(
+    (state: RootState) => state.productsSlice.delivery,
   );
 
   const newList = [...marketRequests];
@@ -21,16 +25,14 @@ export default function Kitchen() {
     dispatch(removeFinished({ id: idMarket }));
     dispatch(toDelivery(request[0]));
   };
+
   const deleteMarket = (idMarket: number) => {
     dispatch(removeFinished({ id: idMarket }));
   };
+
   const deleteDelivery = (idMarket: number) => {
     dispatch(removeDelivery({ id: idMarket }));
   };
-
-  const delivery = useSelector(
-    (state: RootState) => state.productsSlice.delivery,
-  );
 
   return (
     <Container>

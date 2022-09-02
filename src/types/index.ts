@@ -7,6 +7,7 @@ export interface Produto {
   qtd: number;
   total: number;
   observation: string;
+  category: string;
 }
 
 export interface Additional {

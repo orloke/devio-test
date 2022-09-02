@@ -12,12 +12,11 @@ export const DivAdditional = styled.div`
     align-items: center;
     justify-content: center;
     width: 100px;
-    height: 100px;
-    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
-    margin-right: 2%;
+    height: 80px;
+    margin-right: 3%;
     img {
-      width: 90%;
-      height: 90%;
+      width: 100%;
+      height: 100%;
     }
   }
   .descriptionAditional {

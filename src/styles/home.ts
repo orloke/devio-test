@@ -35,7 +35,7 @@ export const DivContent = styled.div`
   margin: 3rem 0%;
   .categories {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
     row-gap: 2rem;
     @media (max-width: 1300px) {
@@ -56,13 +56,14 @@ export const DivContent = styled.div`
 export const Cards = styled.div`
   position: relative;
   width: 150px;
-  height: 200px;
+  height: 170px;
   border-radius: 10px;
   box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   @media (max-width: 768px) {
     margin: auto;
   }
@@ -84,7 +85,7 @@ export const DivSubtitle = styled.div`
 
 export const DivCards = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
   row-gap: 2rem;
 
