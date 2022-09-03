@@ -57,6 +57,7 @@ export const Content = styled.div`
   box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
   border-radius: 10px;
+  text-align: start;
 `;
 
 export const DivButtons = styled.div`
