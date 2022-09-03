@@ -9,7 +9,7 @@ export const DivRequests = styled.div`
   }
 
   .imgRequest {
-    width: 25%;
+    position: relative;
     margin-right: 2%;
     @media (max-width: 768px) {
       width: 100%;
@@ -21,6 +21,9 @@ export const DivRequests = styled.div`
     justify-content: space-between;
     width: 50%;
     text-align: justify;
+    h6 {
+      font-weight: bold;
+    }
     @media (max-width: 768px) {
       width: 100%;
     }

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -68,11 +69,14 @@ export function ModalRequests() {
       </Modal.Header>
       <Modal.Body>
         <DivRequests>
-          <img
-            className="imgRequest"
-            src={produto.image}
-            alt="imagem do pedido"
-          />
+          <div className="imgRequest">
+            <Image
+              src={produto.image}
+              alt="imagem do pedido"
+              width={150}
+              height={130}
+            />
+          </div>
           <div className="descriptionRequest">
             <h6>{produto.title}</h6>
             <span>{produto.description}</span>

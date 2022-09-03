@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatValue } from '../../helps';
@@ -34,7 +35,7 @@ export function Aditional({
   return (
     <DivAdditional>
       <div className="cardImg">
-        <img src={image} alt={title} />
+        <Image width={100} height={100} src={image} alt={title} />
       </div>
       <div className="descriptionAditional">
         <span>{title}</span>
