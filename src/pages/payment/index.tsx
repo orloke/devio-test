@@ -1,35 +1,39 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { removeProduct, toFinished } from '../../store/products';
+import { Container } from '../../styles/payment';
 
 export default function Payment() {
   const router = useRouter();
   const dispatch = useDispatch();
   const [changeName, setChangeName] = useState('');
+  const [inputErro, setinputErro] = useState(false);
   const market = useSelector((state: RootState) => state.productsSlice.market);
 
-  const teste = (name: string) => {
+  const handleName = (name: string) => {
     if (!name) {
+      setinputErro(true);
       return;
     }
     dispatch(toFinished({ market, name: changeName }));
     router.push('/kitchen');
     dispatch(removeProduct('removeAll'));
+    setinputErro(false);
   };
 
   return (
-    <div>
+    <Container error={inputErro}>
       <input
         type="text"
         value={changeName}
         onChange={e => setChangeName(e.target.value)}
         placeholder="escreva seu nome"
       />
-      <button type="button" onClick={() => teste(changeName)}>
-        clique aqui
+      <button type="submit" onClick={() => handleName(changeName)}>
+        Confirmar
       </button>
-    </div>
+    </Container>
   );
 }

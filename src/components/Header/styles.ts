@@ -9,10 +9,12 @@ export const DivHeader = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0;
+    height: 80px;
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+      height: auto;
     }
     img {
       cursor: pointer;

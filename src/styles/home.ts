@@ -38,17 +38,14 @@ export const DivContent = styled.div`
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
     row-gap: 2rem;
-    @media (max-width: 1300px) {
-      justify-content: flex-start;
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(4, 1fr);
     }
     @media (max-width: 768px) {
-      /* flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-      text-align: center;
-      align-items: center; */
-      display: grid;
       grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 370px) {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 `;
@@ -89,12 +86,16 @@ export const DivCards = styled.div`
   grid-template-rows: auto;
   row-gap: 2rem;
 
-  @media (max-width: 1300px) {
-    justify-content: flex-start;
+  @media (max-width: 900px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
   @media (max-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 370px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 

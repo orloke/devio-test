@@ -134,7 +134,7 @@ export function ModalRequests() {
         <Button
           onclick={() => handleMarket()}
           variant="fill"
-          text="Finalizar pedido"
+          text="Continuar comprando"
           ml={2}
         />
       </Modal.Footer>
