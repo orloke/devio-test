@@ -16,9 +16,9 @@ export const Container = styled.div`
     width: 50%;
     border-right: 2px solid black;
     padding: 1rem 0;
-    padding-right: 3rem;
+    padding-right: 2rem;
+    text-align: center;
     h4 {
-      font-size: 2rem;
       color: gray;
     }
     @media (max-width: 768px) {
@@ -32,9 +32,9 @@ export const Container = styled.div`
   .requestsFinish {
     width: 50%;
     padding: 1rem 0;
-    padding-left: 3rem;
+    padding-left: 2rem;
+    text-align: center;
     h4 {
-      font-size: 2rem;
       color: green;
     }
     @media (max-width: 768px) {

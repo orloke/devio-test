@@ -12,13 +12,13 @@ export default function Kitchen() {
   return (
     <Container>
       <div className="requests">
-        <h1>Preparando:</h1>
+        <h3>Preparando:</h3>
         {finished.map(item => (
           <h4 key={item.id}>{item.name}</h4>
         ))}
       </div>
       <div className="requestsFinish">
-        <h1>Pronto:</h1>
+        <h3>Pronto:</h3>
         {delivery.map(item => (
           <h4 key={item.id}>{item.name}</h4>
         ))}

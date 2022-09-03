@@ -24,8 +24,9 @@ export const Container = styled.div`
     width: 50%;
     border-right: 2px solid black;
     padding: 1rem 0;
-    padding-right: 3rem;
+    padding-right: 2rem;
     gap: 1rem;
+    text-align: center;
     @media (max-width: 768px) {
       width: 100%;
       border: none;
@@ -37,10 +38,11 @@ export const Container = styled.div`
   .requestsFinish {
     width: 50%;
     padding: 1rem 0;
-    padding-left: 3rem;
+    padding-left: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
     @media (max-width: 768px) {
       width: 100%;
       padding: 0;
