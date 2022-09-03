@@ -122,7 +122,7 @@ function Home() {
           <h2>Produtos</h2>
           <p>Selecione um produto para adicionar ao seu pedido</p>
         </DivSubtitle>
-        {products.length === 0 ? (
+        {products.length === 0 && !search ? (
           <Image src={loading} />
         ) : (
           <DivCards>
