@@ -23,4 +23,7 @@ export const DivButton = styled.button<props>`
     color: ${props => (props.variant === 'outline' ? 'white' : 'green')};
     transform: scale(1.1);
   }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;

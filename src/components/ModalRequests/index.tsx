@@ -9,7 +9,7 @@ import { Aditional } from '../Aditional';
 import { Button } from '../Buttons';
 import { Observation } from '../Observation';
 import { OrderSummary } from '../OrderSummary';
-import { DivAdditional, DivRequests } from './styles';
+import { DivAdditional, DivModalFooter, DivRequests } from './styles';
 
 export function ModalRequests() {
   const dispatch = useDispatch();
@@ -129,7 +129,7 @@ export function ModalRequests() {
           additional={additional}
         />
       </Modal.Body>
-      <Modal.Footer>
+      <DivModalFooter>
         <Button
           onclick={() => handleClose()}
           variant="outline"
@@ -141,7 +141,7 @@ export function ModalRequests() {
           text="Continuar comprando"
           ml={2}
         />
-      </Modal.Footer>
+      </DivModalFooter>
     </Modal>
   );
 }

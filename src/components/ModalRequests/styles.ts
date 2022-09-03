@@ -1,3 +1,4 @@
+import { Modal } from 'react-bootstrap';
 import styled from 'styled-components';
 
 export const DivRequests = styled.div`
@@ -12,7 +13,9 @@ export const DivRequests = styled.div`
     position: relative;
     margin-right: 2%;
     @media (max-width: 768px) {
+      display: flex;
       width: 100%;
+      justify-content: center;
     }
   }
   .descriptionRequest {
@@ -53,7 +56,6 @@ export const DivRequests = styled.div`
       border-radius: 50%;
       background-color: green;
       border: none;
-      /* padding: 0.5rem; */
       color: white;
       width: 30px;
       font-size: 1.5rem;
@@ -64,4 +66,8 @@ export const DivRequests = styled.div`
 export const DivAdditional = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const DivModalFooter = styled(Modal.Footer)`
+  justify-content: center;
 `;
