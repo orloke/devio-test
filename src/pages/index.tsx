@@ -19,6 +19,7 @@ import sobremesa from '../../public/images/sobremesa.png';
 import cerveja from '../../public/images/cerveja.png';
 import hamburger from '../../public/images/hamburguer2.png';
 import combo from '../../public/images/combo.png';
+import loading from '../../public/images/loading.svg';
 import { ProductCard } from '../components/ProductCard';
 import { Button } from '../components/Buttons';
 import { ModalRequests } from '../components/ModalRequests';
@@ -121,22 +122,26 @@ function Home() {
           <h2>Produtos</h2>
           <p>Selecione um produto para adicionar ao seu pedido</p>
         </DivSubtitle>
-        <DivCards>
-          {products.length !== 0 ? (
-            products.map(item => (
-              <ProductCard
-                key={item.id}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-                description={item.description}
-                price={item.price}
-              />
-            ))
-          ) : (
-            <p>Produto não encontrado</p>
-          )}
-        </DivCards>
+        {products.length === 0 ? (
+          <Image src={loading} />
+        ) : (
+          <DivCards>
+            {products.length !== 0 ? (
+              products.map(item => (
+                <ProductCard
+                  key={item.id}
+                  id={item.id}
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  price={item.price}
+                />
+              ))
+            ) : (
+              <p>Produto não encontrado</p>
+            )}
+          </DivCards>
+        )}
       </DivContent>
       <DivContent>
         <h2>Pedidos</h2>
