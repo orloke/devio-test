@@ -171,6 +171,7 @@ function Home() {
       </DivContent>
       <DivButtons>
         <Button
+          disabled={marketProduct.length === 0}
           variant="outline"
           text="cancelar"
           onclick={() => cancelRequest()}
