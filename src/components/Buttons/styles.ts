@@ -15,7 +15,6 @@ export const DivButton = styled.button<props>`
   font-size: 1.2rem;
   color: ${props => (props.variant === 'outline' ? 'green' : 'white')};
   font-weight: bold;
-  cursor: pointer;
   transition: transform 0.2s ease-out;
   &:hover {
     background-color: ${props =>
