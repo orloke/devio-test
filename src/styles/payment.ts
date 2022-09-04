@@ -19,8 +19,7 @@ export const Container = styled.div<PropsInput>`
     min-height: calc(100vh - 128px - 2rem);
   }
 
-  input,
-  button {
+  input {
     height: 50px;
     border-radius: 6px;
     padding: 0.5rem;
@@ -34,11 +33,7 @@ export const Container = styled.div<PropsInput>`
     @media (max-width: 768px) {
       margin: 0;
       margin-bottom: 1rem;
+      width: 100%;
     }
-  }
-  button {
-    background-color: green;
-    color: white;
-    font-weight: bold;
   }
 `;

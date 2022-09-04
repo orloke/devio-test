@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '../../components/Buttons';
 import { RootState } from '../../store';
 import { removeProduct, toFinished } from '../../store/products';
 import { Container } from '../../styles/payment';
@@ -31,9 +32,11 @@ export default function Payment() {
         onChange={e => setChangeName(e.target.value)}
         placeholder="escreva seu nome"
       />
-      <button type="submit" onClick={() => handleName(changeName)}>
-        Confirmar
-      </button>
+      <Button
+        disabled={changeName.length === 0}
+        text="Confirmar"
+        onclick={() => handleName(changeName)}
+      />
     </Container>
   );
 }

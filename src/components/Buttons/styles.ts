@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface props {
-  variant: string;
+  variant?: string;
   ml?: number;
 }
 

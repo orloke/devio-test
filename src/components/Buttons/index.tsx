@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import { DivButton } from './styles';
 
 interface PropsButton {
   text: string;
-  variant: string;
+  variant?: string;
   ml?: number;
   onclick?: () => void;
   disabled?: boolean;
