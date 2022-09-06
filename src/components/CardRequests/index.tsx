@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-
 import { Additional } from '../../types';
 import { Container, DivDetails } from './styles';
 
@@ -16,8 +14,6 @@ export function CardRequests({
   additional,
   observation,
 }: PropsCardRequest) {
-  const dispatch = useDispatch();
-
   return (
     <Container>
       <div className="detailsObservation">

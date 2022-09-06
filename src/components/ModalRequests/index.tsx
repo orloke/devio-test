@@ -12,13 +12,21 @@ import { OrderSummary } from '../OrderSummary';
 import { DivAdditional, DivModalFooter, DivRequests } from './styles';
 
 export function ModalRequests() {
-  const dispatch = useDispatch();
   const [observation, setObservation] = useState('');
   const [qtd, setQtd] = useState(1);
+
+  const dispatch = useDispatch();
+
   const additional = useSelector(
     (state: RootState) => state.productsSlice.additional,
   );
+  const showModal = useSelector((state: RootState) => state.productsSlice.show);
+  const produto = useSelector(
+    (state: RootState) => state.productsSlice.product,
+  );
+
   const priceAdditional = additional.reduce((a, b) => a + b.price, 0);
+  const price = formatValue(produto.price) as string;
 
   const handleQtd = (operation: string) => {
     if (operation === '+') {
@@ -28,14 +36,6 @@ export function ModalRequests() {
       setQtd(qtd - 1);
     }
   };
-
-  const showModal = useSelector((state: RootState) => state.productsSlice.show);
-
-  const produto = useSelector(
-    (state: RootState) => state.productsSlice.product,
-  );
-
-  const price = formatValue(produto.price) as string;
 
   const handleClose = () => {
     setQtd(1);

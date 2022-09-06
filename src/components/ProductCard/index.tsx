@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatValue } from '../../helps';
 import { RootState } from '../../store';
@@ -21,15 +20,16 @@ export function ProductCard({
   id,
 }: PropsCard) {
   const dispatch = useDispatch();
+
+  const market = useSelector((state: RootState) => state.productsSlice.market);
   const newPrice = formatValue(price);
+  const select = market.map(item => item.product.id);
+
   const handleCard = () => {
     dispatch(setModal(true));
     dispatch(takeProduct({ title, description, price, image, id }));
     dispatch(removeAdditioanl('removeAll'));
   };
-
-  const market = useSelector((state: RootState) => state.productsSlice.market);
-  const select = market.map(item => item.product.id);
 
   return (
     <Card click={select.includes(id)} onClick={() => handleCard()}>

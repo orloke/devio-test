@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { formatValue } from '../../helps';
+import { Additional } from '../../types';
 import { removeProduct } from '../../store/products';
 import { Container, Content, DivRequests } from './styles';
 
@@ -8,10 +9,7 @@ interface PropsOrderSummary {
   price: number;
   id: number;
   qtd: number;
-  additional: {
-    title: string;
-    price: number;
-  }[];
+  additional: Additional[];
 }
 
 export function OrderSummaryAll({
@@ -22,7 +20,9 @@ export function OrderSummaryAll({
   id,
 }: PropsOrderSummary) {
   const dispatch = useDispatch();
+
   const newPrice = price * qtd;
+
   const deleteRequest = (idProduct: number) => {
     dispatch(removeProduct({ id: idProduct }));
   };

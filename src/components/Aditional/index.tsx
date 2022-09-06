@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { formatValue } from '../../helps';
 import { removeAdditioanl, selectAdditioanl } from '../../store/products';
 import { DivAdditional, DivCheckbox } from './styles';
@@ -19,9 +19,9 @@ export function Aditional({
   image,
 }: PropsAditional) {
   const dispatch = useDispatch();
-  const newPrice = formatValue(price);
-
   const [checked, setChecked] = useState(false);
+
+  const newPrice = formatValue(price);
 
   const takeAditional = (name: string) => {
     setChecked(!checked);
