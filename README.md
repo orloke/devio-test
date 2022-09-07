@@ -1,5 +1,5 @@
 <div align="center" style="margin-bottom: 20px;">
-<img alt="demonstração da pagina" src="./public/imagemDemonstracao.png" width="auto" heigth="auto"/>
+<img alt="demonstração da pagina" src="./public/images/fastfood-logo.png" width="auto" heigth="auto"/>
 </div>
 
 <div align="center" style="margin: 20px;">
@@ -20,6 +20,8 @@ O Orkoke FastFood é o resultado do desáfio proposto pela Devio de criar uma ap
 ## :fire: Prévia da Aplicação
 
 https://orlokefood.vercel.app
+
+https://user-images.githubusercontent.com/96503495/188948217-85e34da0-006e-4969-ba84-d497cb6d973e.mp4
 
 ## :rocket: Tecnologias Usadas
 
