@@ -17,7 +17,7 @@ const productsSlice = createSlice({
     setModal(state, action) {
       state.show = action.payload;
     },
-    takeProduct(state, action) {
+    takeProductModal(state, action) {
       state.product = action.payload;
     },
     selectAdditioanl(state, action) {
@@ -36,14 +36,14 @@ const productsSlice = createSlice({
       );
       state.additional = a;
     },
-    selectProduct(state, action) {
+    addProductMarket(state, action) {
       if (action.payload.title !== '') {
         Object.assign(state, {
           market: [...state.market, action.payload],
         });
       }
     },
-    removeProduct(state, action) {
+    deleteProductMarket(state, action) {
       if (action.payload === 'removeAll') {
         state.market = [];
       }
@@ -52,7 +52,7 @@ const productsSlice = createSlice({
       );
       state.market = a;
     },
-    toFinished(state, action) {
+    addForPayment(state, action) {
       if (action.payload.title !== '') {
         const marketFinishedId = {
           ...action.payload,
@@ -63,18 +63,22 @@ const productsSlice = createSlice({
         });
       }
     },
-    removeFinished(state, action) {
+    deleteForPayment(state, action) {
       const a = state.finished.filter(item => item.id !== action.payload.id);
       state.finished = a;
     },
-    toDelivery(state, action) {
+    addForDelivery(state, action) {
       if (action.payload.title !== '') {
+        const addDelivery = {
+          ...action.payload,
+          id: state.delivery.length + 1,
+        };
         Object.assign(state, {
-          delivery: [...state.delivery, action.payload],
+          delivery: [...state.delivery, addDelivery],
         });
       }
     },
-    removeDelivery(state, action) {
+    deleteForDelivery(state, action) {
       const a = state.delivery.filter(item => item.id !== action.payload.id);
       state.delivery = a;
     },
@@ -83,14 +87,14 @@ const productsSlice = createSlice({
 
 export const {
   setModal,
-  takeProduct,
+  takeProductModal,
   selectAdditioanl,
   removeAdditioanl,
-  selectProduct,
-  removeProduct,
-  toFinished,
-  removeFinished,
-  toDelivery,
-  removeDelivery,
+  addProductMarket,
+  deleteProductMarket,
+  addForPayment,
+  deleteForPayment,
+  addForDelivery,
+  deleteForDelivery,
 } = productsSlice.actions;
 export default productsSlice.reducer;

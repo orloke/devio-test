@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { formatValue } from '../../helps';
 import { Additional } from '../../types';
-import { removeProduct } from '../../store/products';
+import { deleteProductMarket } from '../../store/products';
 import { Container, Content, DivRequests } from './styles';
 
 interface PropsOrderSummary {
@@ -24,7 +24,7 @@ export function OrderSummaryAll({
   const newPrice = price * qtd;
 
   const deleteRequest = (idProduct: number) => {
-    dispatch(removeProduct({ id: idProduct }));
+    dispatch(deleteProductMarket({ id: idProduct }));
   };
   return (
     <Container>

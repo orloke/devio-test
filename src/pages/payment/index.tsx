@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../components/Buttons';
 import { RootState } from '../../store';
-import { removeProduct, toFinished } from '../../store/products';
+import { deleteProductMarket, addForPayment } from '../../store/products';
 import { Container } from '../../styles/payment';
 
 export default function Payment() {
@@ -20,9 +20,9 @@ export default function Payment() {
       setinputErro(true);
       return;
     }
-    dispatch(toFinished({ market, name: changeName }));
+    dispatch(addForPayment({ market, name: changeName }));
     router.push('/kitchen');
-    dispatch(removeProduct('removeAll'));
+    dispatch(deleteProductMarket('removeAll'));
     setinputErro(false);
   };
 

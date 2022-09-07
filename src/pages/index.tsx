@@ -27,7 +27,7 @@ import { getProducts, getProductsCategory } from '../service';
 import { RootState } from '../store';
 import { formatValue } from '../helps';
 import { OrderSummaryAll } from '../components/OrderSummaryAll';
-import { removeProduct } from '../store/products';
+import { deleteProductMarket } from '../store/products';
 import CardCategories from '../components/CardCategories';
 
 function Home() {
@@ -54,7 +54,7 @@ function Home() {
   const newTotalRequests = formatValue(totalRequests);
 
   const cancelRequest = () => {
-    dispatch(removeProduct('removeAll'));
+    dispatch(deleteProductMarket('removeAll'));
   };
 
   const searchCategory = async (categorie: string) => {

@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { formatValue } from '../../helps';
 import { RootState } from '../../store';
-import { removeAdditioanl, setModal, takeProduct } from '../../store/products';
+import {
+  removeAdditioanl,
+  setModal,
+  takeProductModal,
+} from '../../store/products';
 import { Card, Content } from './styles';
 
 interface PropsCard {
@@ -29,7 +33,9 @@ export function ProductCard({
 
   const handleCard = () => {
     dispatch(setModal(true));
-    dispatch(takeProduct({ title, description, price, image, id, category }));
+    dispatch(
+      takeProductModal({ title, description, price, image, id, category }),
+    );
     dispatch(removeAdditioanl('removeAll'));
   };
 

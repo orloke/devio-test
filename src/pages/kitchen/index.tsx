@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CardRequests } from '../../components/CardRequests';
 import { RootState } from '../../store';
 import {
-  removeDelivery,
-  removeFinished,
-  toDelivery,
+  deleteForDelivery,
+  deleteForPayment,
+  addForDelivery,
 } from '../../store/products';
 import { Button, Container, Content, DivButtons } from '../../styles/kitchen';
 
@@ -23,16 +23,16 @@ export default function Kitchen() {
 
   const handleDelivery = (idMarket: number) => {
     const request = newList.filter(d => d.id === idMarket);
-    dispatch(removeFinished({ id: idMarket }));
-    dispatch(toDelivery(request[0]));
+    dispatch(deleteForPayment({ id: idMarket }));
+    dispatch(addForDelivery(request[0]));
   };
 
   const deleteMarket = (idMarket: number) => {
-    dispatch(removeFinished({ id: idMarket }));
+    dispatch(deleteForPayment({ id: idMarket }));
   };
 
   const deleteDelivery = (idMarket: number) => {
-    dispatch(removeDelivery({ id: idMarket }));
+    dispatch(deleteForDelivery({ id: idMarket }));
   };
 
   return (
@@ -44,7 +44,7 @@ export default function Kitchen() {
         <div className="requests">
           <h3>Preparando:</h3>
           {marketRequests.map(item => (
-            <Content key={item.name}>
+            <Content key={`${item.id}preparando`}>
               <h5>Cliente: {item.name}</h5>
               {item.market.map(product => (
                 <CardRequests
@@ -80,7 +80,7 @@ export default function Kitchen() {
         <div className="requestsFinish">
           <h3>Pronto:</h3>
           {delivery.map(item => (
-            <Content key={item.name}>
+            <Content key={`${item.id}pronto`}>
               <h5>Cliente: {item.name}</h5>
               {item.market.map(product => (
                 <CardRequests

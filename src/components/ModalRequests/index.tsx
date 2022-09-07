@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatValue } from '../../helps';
 import { RootState } from '../../store';
-import { selectProduct, setModal } from '../../store/products';
+import { addProductMarket, setModal } from '../../store/products';
 import { Aditional } from '../Aditional';
 import { Button } from '../Buttons';
 import { Observation } from '../Observation';
@@ -44,7 +44,7 @@ export function ModalRequests() {
 
   const handleMarket = () => {
     dispatch(
-      selectProduct({
+      addProductMarket({
         product: {
           title: produto.title,
           price: produto.price,
