@@ -2,7 +2,7 @@ import { DivButton } from './styles';
 
 interface PropsButton {
   text: string;
-  variant?: string;
+  variant?: 'outline' | 'fill';
   ml?: number;
   onclick?: () => void;
   disabled?: boolean;
