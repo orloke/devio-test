@@ -50,18 +50,6 @@ $ npm run dev
 
 #### Dificuldades
 
-Quando comecei o projeto, não conhecia algumas das ferramentas usadas, como o [Leaflet](https://react-leaflet.js.org) e tinha uma experiência irrisória em outras, como o [React-Redux](https://react-redux.js.org), mas graças ao bom e velho Google, Youtube, StackOverflow e documentações, consegui aprender e aplicar no código. Uma vez superado o desconhecido, as ideias fluiram mais naturalmente apesar de surgir outros problemas. Realmente quebrei a cabeça para criar algumas das funções usadas, e investi algumas horas do meu tempo para desenvolver a parte dinâmica do site: alteração dos icones dependendo do equipamento, alteração das informações ao clicar no mapa e o filtro de maquinas. Esse último saiu já no final do projeto e por ironia a solução é bem simples, talvez não a mais elegante, mas é simples!
-
-#### Pontos de melhorias
-
-* Por mais que tenha me esforçado ainda não acredito que o código esteja o mais 'clean' possível, em algumas partes sinto que poderia ter escrito de outra forma, já outas podem estar redundantes ou repetitivas. 
-* Não realizei todos os teste na aplicação, ainda estou aprendendo como fazer, mas creio que no próximo projeto já será possível.
-* A tabela de informação de dias pode ficar melhor na versão mobile, com as linhas se transformando em colunas.
-* Colocar modo escuro na pagina. Caso o usuário deseje é só clicar em um botão e o background fica preto.
-* Ativar a opção de usar localização atual no mapa.
-
-
-A maior parte dessas melhorias podem ser executadas com mais algumas linhas de código. Além desses há outros pontos de melhorias, que irei superar através dos estudos e disciplina. Abaixo deixo meus contatos para feedbacks e opiniões :grin:!
 
 ## :phone: Contatos
 
