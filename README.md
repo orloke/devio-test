@@ -48,8 +48,6 @@ $ npm run dev
 
 ## :grinning: Conclusão
 
-#### Dificuldades
-
 
 ## :phone: Contatos
 
