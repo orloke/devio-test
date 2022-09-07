@@ -10,6 +10,7 @@ interface PropsCard {
   description: string;
   price: number;
   id: number;
+  category: string;
 }
 
 export function ProductCard({
@@ -18,6 +19,7 @@ export function ProductCard({
   description,
   price,
   id,
+  category,
 }: PropsCard) {
   const dispatch = useDispatch();
 
@@ -27,7 +29,7 @@ export function ProductCard({
 
   const handleCard = () => {
     dispatch(setModal(true));
-    dispatch(takeProduct({ title, description, price, image, id }));
+    dispatch(takeProduct({ title, description, price, image, id, category }));
     dispatch(removeAdditioanl('removeAll'));
   };
 

@@ -37,7 +37,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       },
       {
         id: 5,
-        category: 'sobremessa',
+        category: 'sobremesa',
         title: 'açai',
         price: 16.5,
         description: '500 ml',
@@ -45,7 +45,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       },
       {
         id: 10,
-        category: 'sobremessa',
+        category: 'sobremesa',
         title: 'Sorvete',
         price: 26.5,
         description: '2 litros',
@@ -69,7 +69,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       },
       {
         id: 8,
-        category: 'Cerveja',
+        category: 'cerveja',
         title: 'Skol',
         price: 23,
         description: '350 ml',
@@ -77,7 +77,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       },
       {
         id: 9,
-        category: 'Cerveja',
+        category: 'cerveja',
         title: 'Heineken',
         price: 23,
         description: '350 ml',

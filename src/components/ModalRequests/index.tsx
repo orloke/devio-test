@@ -92,28 +92,29 @@ export function ModalRequests() {
           </div>
           <p className="total">{price}</p>
         </DivRequests>
-        <DivAdditional>
-          <h4>Adicionais</h4>
-          <span>
-            Selecione os ingredientes que você quer adicionar a mais no seu
-            lanche
-          </span>
-          <Aditional
-            title="bacon"
-            description="100g"
-            price={2.0}
-            image="/images/bacon.png"
-          />
-          <Aditional
-            title="mussarela"
-            description="100g"
-            price={3.0}
-            image="/images/mussarela.png"
-          />
-        </DivAdditional>
+        {produto.category === 'hamburger' && (
+          <DivAdditional>
+            <h4>Adicionais</h4>
+            <span>
+              Selecione os ingredientes que você quer adicionar no seu lanche
+            </span>
+            <Aditional
+              title="bacon"
+              description="100g"
+              price={2.0}
+              image="/images/bacon.png"
+            />
+            <Aditional
+              title="mussarela"
+              description="100g"
+              price={3.0}
+              image="/images/mussarela.png"
+            />
+          </DivAdditional>
+        )}
         <Observation
           marginBottom={1}
-          marginTop={1}
+          marginTop={2}
           placeholder="Adicione uma observação ao pedido"
           rows={4}
           readonly={false}

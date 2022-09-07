@@ -17,13 +17,13 @@ export default function Delivery() {
       </Head>
       <Container>
         <div className="requests">
-          <h3>Preparando:</h3>
+          <h3>Esperando:</h3>
           {finished.map(item => (
             <h4 key={item.id}>{item.name}</h4>
           ))}
         </div>
         <div className="requestsFinish">
-          <h3>Pronto:</h3>
+          <h3>Retirado:</h3>
           {delivery.map(item => (
             <h4 key={item.id}>{item.name}</h4>
           ))}

@@ -23,5 +23,6 @@ export const DivButton = styled.button<props>`
   }
   @media (max-width: 768px) {
     width: 100%;
+    margin-left: 0;
   }
 `;

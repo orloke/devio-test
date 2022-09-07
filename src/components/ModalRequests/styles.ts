@@ -29,6 +29,8 @@ export const DivRequests = styled.div`
     }
     @media (max-width: 768px) {
       width: 100%;
+      text-align: center;
+      align-items: center;
     }
   }
 
@@ -60,12 +62,19 @@ export const DivRequests = styled.div`
       width: 30px;
       font-size: 1.5rem;
     }
+    span {
+      font-weight: bold;
+      @media (max-width: 768px) {
+        font-size: 1.3rem;
+      }
+    }
   }
 `;
 
 export const DivAdditional = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
 `;
 
 export const DivModalFooter = styled(Modal.Footer)`

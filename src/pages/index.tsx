@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
-  Cards,
   Container,
   DivButtons,
   DivCards,
@@ -14,7 +13,6 @@ import {
   DivTitleInput,
   TotalRequest,
 } from '../styles/home';
-
 import refrigerante from '../../public/images/refrigerante.png';
 import sobremesa from '../../public/images/sobremesa.png';
 import cerveja from '../../public/images/cerveja.png';
@@ -30,6 +28,7 @@ import { RootState } from '../store';
 import { formatValue } from '../helps';
 import { OrderSummaryAll } from '../components/OrderSummaryAll';
 import { removeProduct } from '../store/products';
+import CardCategories from '../components/CardCategories';
 
 function Home() {
   const [products, setProducts] = useState([] as Produto[]);
@@ -51,7 +50,7 @@ function Home() {
     (state: RootState) => state.productsSlice.market,
   );
 
-  const totalRequests = marketProduct.reduce((a, b) => a + b.product.price, 0);
+  const totalRequests = marketProduct.reduce((a, b) => a + b.product.total, 0);
   const newTotalRequests = formatValue(totalRequests);
 
   const cancelRequest = () => {
@@ -85,46 +84,31 @@ function Home() {
             <p>Navegue por categorias</p>
           </DivSubtitle>
           <div className="categories">
-            <Cards onClick={() => searchCategory('hamburger')}>
-              <Image
-                width={100}
-                height={100}
-                src={hamburger}
-                alt="Refrigerente "
-              />
-              <p>hamburger</p>
-            </Cards>
-            <Cards onClick={() => searchCategory('refrigerante')}>
-              <Image
-                width={140}
-                height={150}
-                src={refrigerante}
-                alt="Refrigerente "
-              />
-              <p>Refrigerante</p>
-            </Cards>
-            <Cards onClick={() => searchCategory('sobremessa')}>
-              <Image
-                width={100}
-                height={150}
-                src={sobremesa}
-                alt="Refrigerente "
-              />
-              <p>Sobremesa</p>
-            </Cards>
-            <Cards onClick={() => searchCategory('Cerveja')}>
-              <Image
-                width={100}
-                height={150}
-                src={cerveja}
-                alt="Refrigerente "
-              />
-              <p>Cerveja</p>
-            </Cards>
-            <Cards onClick={() => searchCategory('')}>
-              <Image width={100} height={150} src={combo} alt="Refrigerente " />
-              <p>Todos</p>
-            </Cards>
+            <CardCategories
+              onclick={() => searchCategory('hamburger')}
+              image={hamburger}
+              name="Hamburger"
+            />
+            <CardCategories
+              onclick={() => searchCategory('refrigerante')}
+              image={refrigerante}
+              name="Refrigerante"
+            />
+            <CardCategories
+              onclick={() => searchCategory('sobremesa')}
+              image={sobremesa}
+              name="Sobremesa"
+            />
+            <CardCategories
+              onclick={() => searchCategory('cerveja')}
+              image={cerveja}
+              name="Cerveja"
+            />
+            <CardCategories
+              onclick={() => searchCategory('')}
+              image={combo}
+              name="Todos"
+            />
           </div>
         </DivContent>
         <DivContent>
@@ -145,6 +129,7 @@ function Home() {
                     title={item.title}
                     description={item.description}
                     price={item.price}
+                    category={item.category}
                   />
                 ))
               ) : (
