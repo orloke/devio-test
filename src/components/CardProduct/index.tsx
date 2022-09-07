@@ -3,7 +3,7 @@ import { formatValue } from '../../helps';
 import { RootState } from '../../store';
 import {
   removeAdditioanl,
-  setModal,
+  setChangeModal,
   takeProductModal,
 } from '../../store/products';
 import { Card, Content } from './styles';
@@ -17,7 +17,7 @@ interface PropsCard {
   category: string;
 }
 
-export function ProductCard({
+export function CardProduct({
   image,
   title,
   description,
@@ -32,7 +32,7 @@ export function ProductCard({
   const select = market.map(item => item.product.id);
 
   const handleCard = () => {
-    dispatch(setModal(true));
+    dispatch(setChangeModal(true));
     dispatch(
       takeProductModal({ title, description, price, image, id, category }),
     );

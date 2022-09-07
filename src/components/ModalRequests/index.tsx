@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatValue } from '../../helps';
 import { RootState } from '../../store';
-import { addProductMarket, setModal } from '../../store/products';
+import { addProductMarket, setChangeModal } from '../../store/products';
 import { Aditional } from '../Aditional';
 import { Button } from '../Buttons';
 import { Observation } from '../Observation';
@@ -39,7 +39,7 @@ export function ModalRequests() {
 
   const handleClose = () => {
     setQtd(1);
-    dispatch(setModal(false));
+    dispatch(setChangeModal(false));
   };
 
   const handleMarket = () => {
@@ -59,7 +59,7 @@ export function ModalRequests() {
     );
     setQtd(1);
     setObservation('');
-    dispatch(setModal(false));
+    dispatch(setChangeModal(false));
   };
 
   return (

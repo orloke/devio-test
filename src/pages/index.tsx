@@ -19,7 +19,7 @@ import cerveja from '../../public/images/cerveja.png';
 import hamburger from '../../public/images/hamburguer2.png';
 import combo from '../../public/images/combo.png';
 import loading from '../../public/images/loading.svg';
-import { ProductCard } from '../components/ProductCard';
+import { CardProduct } from '../components/CardProduct';
 import { Button } from '../components/Buttons';
 import { ModalRequests } from '../components/ModalRequests';
 import { Produto } from '../types';
@@ -122,7 +122,7 @@ function Home() {
             <DivCards>
               {products.length !== 0 ? (
                 products.map(item => (
-                  <ProductCard
+                  <CardProduct
                     key={item.id}
                     id={item.id}
                     image={item.image}

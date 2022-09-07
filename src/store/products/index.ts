@@ -14,13 +14,13 @@ const productsSlice = createSlice({
   name: '@products',
   initialState,
   reducers: {
-    setModal(state, action) {
+    setChangeModal(state, action) {
       state.show = action.payload;
     },
     takeProductModal(state, action) {
       state.product = action.payload;
     },
-    selectAdditioanl(state, action) {
+    addAdditioanl(state, action) {
       if (action.payload.title !== '') {
         Object.assign(state, {
           additional: [...state.additional, action.payload],
@@ -86,9 +86,9 @@ const productsSlice = createSlice({
 });
 
 export const {
-  setModal,
+  setChangeModal,
   takeProductModal,
-  selectAdditioanl,
+  addAdditioanl,
   removeAdditioanl,
   addProductMarket,
   deleteProductMarket,

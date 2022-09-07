@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { formatValue } from '../../helps';
-import { removeAdditioanl, selectAdditioanl } from '../../store/products';
+import { removeAdditioanl, addAdditioanl } from '../../store/products';
 import { DivAdditional, DivCheckbox } from './styles';
 
 interface PropsAditional {
@@ -26,7 +26,7 @@ export function Aditional({
   const takeAditional = (name: string) => {
     setChecked(!checked);
     if (!checked) {
-      dispatch(selectAdditioanl({ price, title: name }));
+      dispatch(addAdditioanl({ price, title: name }));
     } else {
       dispatch(removeAdditioanl({ title: name }));
     }
