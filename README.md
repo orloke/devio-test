@@ -53,6 +53,6 @@ $ npm run dev
 
 Email: [juniordering@hotmail.com](juniordering@hotmail.com)
 
-WhatsApp [(65) 98175-1036](https://wa.me/5565981751036)
+WhatsApp: [(65) 98175-1036](https://wa.me/5565981751036)
 
 
