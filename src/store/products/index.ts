@@ -37,11 +37,9 @@ const productsSlice = createSlice({
       state.additional = a;
     },
     addProductMarket(state, action) {
-      if (action.payload.title !== '') {
-        Object.assign(state, {
-          market: [...state.market, action.payload],
-        });
-      }
+      Object.assign(state, {
+        market: [...state.market, action.payload],
+      });
     },
     deleteProductMarket(state, action) {
       if (action.payload === 'removeAll') {
@@ -53,30 +51,26 @@ const productsSlice = createSlice({
       state.market = a;
     },
     addForPayment(state, action) {
-      if (action.payload.title !== '') {
-        const marketFinishedId = {
-          ...action.payload,
-          id: state.finished.length + 1,
-        };
-        Object.assign(state, {
-          finished: [...state.finished, marketFinishedId],
-        });
-      }
+      const marketFinishedId = {
+        ...action.payload,
+        id: state.finished.length + 1,
+      };
+      Object.assign(state, {
+        finished: [...state.finished, marketFinishedId],
+      });
     },
     deleteForPayment(state, action) {
       const a = state.finished.filter(item => item.id !== action.payload.id);
       state.finished = a;
     },
     addForDelivery(state, action) {
-      if (action.payload.title !== '') {
-        const addDelivery = {
-          ...action.payload,
-          id: state.delivery.length + 1,
-        };
-        Object.assign(state, {
-          delivery: [...state.delivery, addDelivery],
-        });
-      }
+      const addDelivery = {
+        ...action.payload,
+        id: state.delivery.length + 1,
+      };
+      Object.assign(state, {
+        delivery: [...state.delivery, addDelivery],
+      });
     },
     deleteForDelivery(state, action) {
       const a = state.delivery.filter(item => item.id !== action.payload.id);

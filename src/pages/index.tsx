@@ -34,6 +34,7 @@ function Home() {
   const [products, setProducts] = useState([] as Produto[]);
   const router = useRouter();
   const [search, setSearch] = useState('');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const takeProducts = async () => {
@@ -44,13 +45,15 @@ function Home() {
     takeProducts();
   }, [search]);
 
-  const dispatch = useDispatch();
-
   const marketProduct = useSelector(
     (state: RootState) => state.productsSlice.market,
   );
 
-  const totalRequests = marketProduct.reduce((a, b) => a + b.product.total, 0);
+  const totalRequests = marketProduct.reduce(
+    (acc, crr) => acc + crr.product.total,
+    0,
+  );
+
   const newTotalRequests = formatValue(totalRequests);
 
   const cancelRequest = () => {
@@ -144,19 +147,16 @@ function Home() {
             <p>Faça um pedido!</p>
           ) : (
             <DivRequest>
-              {marketProduct.map(
-                item =>
-                  item.product.title !== '' && (
-                    <OrderSummaryAll
-                      key={item.product.title}
-                      title={item.product.title}
-                      id={item.product.id}
-                      qtd={item.product.qtd}
-                      price={item.product.price}
-                      additional={item.additional}
-                    />
-                  ),
-              )}
+              {marketProduct.map(item => (
+                <OrderSummaryAll
+                  key={item.product.title}
+                  title={item.product.title}
+                  id={item.product.id}
+                  qtd={item.product.qtd}
+                  price={item.product.price}
+                  additional={item.additional}
+                />
+              ))}
               <TotalRequest>
                 <h6>Total do pedido:</h6>
                 <h5>{newTotalRequests}</h5>
