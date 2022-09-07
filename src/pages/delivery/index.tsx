@@ -4,9 +4,6 @@ import { RootState } from '../../store';
 import { Container } from '../../styles/delivery';
 
 export default function Delivery() {
-  const finished = useSelector(
-    (state: RootState) => state.productsSlice.finished,
-  );
   const delivery = useSelector(
     (state: RootState) => state.productsSlice.delivery,
   );
@@ -18,15 +15,12 @@ export default function Delivery() {
       <Container>
         <div className="requests">
           <h3>Esperando:</h3>
-          {finished.map(item => (
+          {delivery.map(item => (
             <h4 key={item.id}>{item.name}</h4>
           ))}
         </div>
         <div className="requestsFinish">
           <h3>Retirado:</h3>
-          {delivery.map(item => (
-            <h4 key={item.id}>{item.name}</h4>
-          ))}
         </div>
       </Container>
     </>
