@@ -40,7 +40,7 @@ export function CardProduct({
   };
 
   return (
-    <Card click={select.includes(id)} onClick={() => handleCard()}>
+    <Card onClick={() => handleCard()} click={select.includes(id)}>
       <Content>
         <div className="teste2">
           <img src={image} alt={title} />
