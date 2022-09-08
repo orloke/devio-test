@@ -93,6 +93,7 @@ Na parte de Front-End dê preferencia a usar Redux em vez de ContextApi. Ambos r
 Esse foi o primeiro e-commerce que desenvolvi e por isso considerei um projeto desafiador, mas muito gratificante. Todo o projeto é resultado de escolhas pessoais, que sempre busquei basear em pesquisas e nos estudos que fiz. 
 
 Algumas partes do projeto, como a pagina de pagamento, ainda podem e serão melhoradas com o tempo, mas fico feliz de ter cumpridos as exigências para a entrega!
+
 Agradeço a [Devio](https://devio.com.br/) pela oportunidade! :D
 
 
