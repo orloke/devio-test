@@ -15,11 +15,20 @@
 
 ## :barber: O projeto
 
-O Orkoke FastFood é o resultado do desáfio proposto pela Devio de criar uma aplicação onde é possível pesquisar, comprar e acompanhar pedidos feitos no site.
+Bem-vindo ao Orloke FastFood excelente para qualquer tipo de restaurante.
+
+
+Na nossa tela inicial você pode encontrar as opções mais populares, onde também é possível pesquisar por nome do produto ou categoria. E com apenas um clique você seleciona o seu produto, quais adicionais vai querer e se deseja deixar alguma observação. Feito isso é só revisar seu pedido e clicar em “Finalizar Pedido”.
+Você será redirecionado para a tela de pagamento. Nessa parte, a desejo do estabelecimento, será exibido os tipos de pagamentos que são aceitos: Paypal, cartão de credito, dinheiro... por enquanto deixamos apenas a opção de digitar o nome do cliente.
+
+
+Confirmado o pagamento vamos para a “Cozinha” (somente pessoal) onde é possível ver os produtos que estão em preparo e aqueles que já estão prontos. E com apenas um click você pode mudar o status deles de preparo para pronto, e automaticamente já são encaminhados para o delivery. Tudo isso de uma maneira rápida e intuitiva que que vai de dar mais tranquilidade e prazer em administrar o seu negócio! 
 
 ## :fire: Prévia da Aplicação
 
 https://orlokefood.vercel.app
+
+Não esqueça de ativar o áudio do vídeo!
 
 https://user-images.githubusercontent.com/96503495/188948217-85e34da0-006e-4969-ba84-d497cb6d973e.mp4
 
@@ -48,7 +57,43 @@ $ npm install
 $ npm run dev
 ```
 
+## :open_book: Código
+
+Escolhi o Next para esse desafio porque por se tratar de um e-commerce é importante ter uma boa indexação pelos motores de busca, além de já possuir uma parte de back-end já estruturada de modo que não é necessário criar uma API, coloca-la em um servidor para depois consumi-la. 
+
+```sh
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  res.status(200).json({
+    products: [
+      {
+        id: 1,
+        category: 'hamburger',
+        title: 'Smash da casa',
+        price: 30.5,
+        description: 'Esse é muito bom',
+        image: '/images/hamburguer.png',
+      },
+      {
+        id: 2,
+        category: 'hamburger',
+        title: 'Pão alemão',
+        price: 31.5,
+        description: 'Esse é 7 a 1 de sabor',
+        image: '/images/hamburguer.png',
+      }, ...
+      
+      //codigo encontrado dentro de src/api
+```
+Na parte de Front-End dê preferencia a usar Redux em vez de ContextApi. Ambos resolveriam os problemas que surgiram, mas através de pesquisas e opiniões de outros Devs considero o Redux mais poderoso. 
+
 ## :grinning: Conclusão
+
+Esse foi o primeiro e-commerce que desenvolvi e por isso considerei um projeto desafiador, mas muito gratificante. Todo o projeto é resultado de escolhas pessoais, que sempre busquei basear em pesquisas e nos estudos que fiz. 
+
+Algumas partes do projeto, como a pagina de pagamento, ainda podem e serão melhoradas com o tempo, mas fico feliz de ter cumpridos as exigências para a entrega!
+Agradeço a [Devio](https://devio.com.br/) pela oportunidade! :D
 
 
 ## :phone: Contatos
