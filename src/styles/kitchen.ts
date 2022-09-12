@@ -65,21 +65,18 @@ export const DivButtons = styled.div`
   justify-content: space-between;
 `;
 
-export const Button =
-  styled.button <
-  PropsButton >
-  `
-	background-color: ${PropsButton => PropsButton.backgroundColor};
-	width: 30px;
-	height: 30px;
-	margin: ${PropsButton => PropsButton.margin};
-	border: none;
-	border-radius: 10px;
-	color: ${PropsButton => PropsButton.color};
-	display: ${PropsButton => PropsButton.display};
-	cursor: pointer;
-	transition: transform 0.2s ease-in-out;
-	&:hover {
-		transform: scale(1.1);
-	}
+export const Button = styled.button<PropsButton>`
+  background-color: ${PropsButton => PropsButton.backgroundColor};
+  width: 30px;
+  height: 30px;
+  margin: ${PropsButton => PropsButton.margin};
+  border: none;
+  border-radius: 10px;
+  color: ${PropsButton => PropsButton.color};
+  display: ${PropsButton => PropsButton.display};
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

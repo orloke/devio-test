@@ -4,40 +4,37 @@ interface props {
   click: boolean;
 }
 
-export const Card =
-  styled.div <
-  props >
-  `
-	width: 150px;
-	height: 180px;
-	position: relative;
-	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
-	cursor: pointer;
-	box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
-	transition: transform 0.2s ease-out;
-	@media (max-width: 768px) {
-		margin: auto;
-	}
+export const Card = styled.div<props>`
+  width: 150px;
+  height: 180px;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-out;
+  @media (max-width: 768px) {
+    margin: auto;
+  }
 
-	&:hover {
-		transform: scale(1.1);
-		z-index: 1;
-	}
-	.selected {
-		position: absolute;
-		border-radius: 10px;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(11, 156, 49, 0.4);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: white;
-		font-size: 1.5rem;
-		display: ${props => (props.click ? 'flex' : 'none')};
-	}
+  &:hover {
+    transform: scale(1.1);
+    z-index: 1;
+  }
+  .selected {
+    position: absolute;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 156, 49, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    display: ${props => (props.click ? 'flex' : 'none')};
+  }
 `;
 
 export const Content = styled.div`
