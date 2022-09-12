@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 interface props {
-	marginTop?: number;
-	marginBottom?: number;
+  marginTop?: number;
+  marginBottom?: number;
 }
 
-export const DivObservation = styled.div<props>`
+export const DivObservation =
+  styled.div <
+  props >
+  `
 	display: flex;
 	flex-direction: column;
 	margin-top: ${props => props.marginTop}rem;

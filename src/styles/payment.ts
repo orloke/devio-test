@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 interface PropsInput {
-	error: boolean;
+  error: boolean;
 }
 
-export const Container = styled.div<PropsInput>`
+export const Container =
+  styled.div <
+  PropsInput >
+  `
 	max-width: 70%;
 	margin: 1rem auto;
 	display: flex;

@@ -6,13 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { store } from '../store';
 
 function MyApp({ Component, pageProps }: AppProps) {
-	return (
-		<Provider store={store}>
-			<Header />
-			<Component {...pageProps} />
-			<GlobalStyle />
-		</Provider>
-	);
+  return (
+    <Provider store={store}>
+      <Header />
+      <Component {...pageProps} />
+      <GlobalStyle />
+    </Provider>
+  );
 }
 
 export default MyApp;
