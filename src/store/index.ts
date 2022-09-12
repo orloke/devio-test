@@ -2,9 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import productsSlice from './products';
 
 export const store = configureStore({
-  reducer: {
-    productsSlice,
-  },
+	reducer: {
+		productsSlice,
+	},
 });
 
 export type RootState = ReturnType<typeof store.getState>;
