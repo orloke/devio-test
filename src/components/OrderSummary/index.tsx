@@ -6,8 +6,8 @@ interface PropsOrderSummary {
   price: string;
   total: number;
   additional: {
-    title: string,
-    price: number,
+    title: string;
+    price: number;
   }[];
 }
 
