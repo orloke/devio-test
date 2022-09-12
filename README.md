@@ -90,7 +90,15 @@ Na parte de Front-End dê preferencia a usar Redux em vez de ContextApi. Ambos r
 
 ## :grinning: Conclusão
 
-Esse foi o primeiro e-commerce que desenvolvi e por isso considerei um projeto desafiador, mas muito gratificante. Todo o projeto é resultado de escolhas pessoais, que sempre busquei basear em pesquisas e nos estudos que fiz. 
+#### Dificuldades
+
+* Esse foi o primeiro e-commerce que desenvolvi e por isso considerei um projeto desafiador, mas muito gratificante.
+
+* A primeira dificuldade foi sem duvida o Eslint, nunca tinha usado com os padrões de configuração exigidos, mas felizmente consegui configura-lo!
+
+* Tive de quebrar a cabeça para poder separar os pedidos entre clientes.
+
+Todo o projeto é resultado de escolhas pessoais, que sempre busquei basear em pesquisas e nos estudos que fiz. 
 
 Algumas partes do projeto, como a pagina de pagamento, ainda podem e serão melhoradas com o tempo, mas fico feliz de ter cumpridos as exigências para a entrega!
 
