@@ -97,15 +97,3 @@ export const DivRequest = styled.div`
   border-radius: 10px;
   padding: 1rem;
 `;
-
-export const TotalRequest = styled.div`
-  margin-top: 1rem;
-  display: flex;
-  width: 100%;
-  h6 {
-    margin-top: 0.5rem;
-  }
-  h5 {
-    margin-left: auto;
-  }
-`;

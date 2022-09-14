@@ -1,48 +1,33 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '../../components/Buttons';
+import { useSelector } from 'react-redux';
+import { OrderSummaryAll } from '../../components/OrderSummaryAll';
+import TotalRequests from '../../components/TotalRequests';
 import { RootState } from '../../store';
-import { deleteProductMarket, addForPayment } from '../../store/products';
-import { Container } from '../../styles/payment';
+
+import { Container, InfoRequest } from '../../styles/payment';
 
 export default function Payment() {
-  const router = useRouter();
-  const dispatch = useDispatch();
   const market = useSelector((state: RootState) => state.productsSlice.market);
-
-  const [changeName, setChangeName] = useState('');
-  const [inputErro, setinputErro] = useState(false);
-
-  const handleName = (name: string) => {
-    if (!name) {
-      setinputErro(true);
-      return;
-    }
-    dispatch(addForPayment({ market, name: changeName }));
-    router.push('/kitchen');
-    dispatch(deleteProductMarket('removeAll'));
-    setinputErro(false);
-  };
 
   return (
     <>
       <Head>
         <title>Pagamento</title>
       </Head>
-      <Container error={inputErro}>
-        <input
-          type="text"
-          value={changeName}
-          onChange={e => setChangeName(e.target.value)}
-          placeholder="escreva seu nome"
-        />
-        <Button
-          disabled={changeName.length === 0}
-          text="Confirmar"
-          onclick={() => handleName(changeName)}
-        />
+      <Container>
+        <InfoRequest>
+          {market.map(item => (
+            <OrderSummaryAll
+              key={item.id}
+              title={item.product.title}
+              additional={item.additional}
+              price={item.product.price}
+              id={item.product.id}
+              qtd={item.product.qtd}
+            />
+          ))}
+          <TotalRequests market={market} />
+        </InfoRequest>
       </Container>
     </>
   );

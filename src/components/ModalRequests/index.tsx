@@ -124,7 +124,7 @@ export function ModalRequests() {
           <h4>Observações</h4>
         </Observation>
         <OrderSummary
-          title={produto.title}
+          title={`${qtd}x ${produto.title}`}
           price={price}
           total={qtd * produto.price + priceAdditional}
           additional={additional}

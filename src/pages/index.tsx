@@ -11,7 +11,6 @@ import {
   DivRequest,
   DivSubtitle,
   DivTitleInput,
-  TotalRequest,
 } from '../styles/home';
 import refrigerante from '../../public/images/refrigerante.png';
 import sobremesa from '../../public/images/sobremesa.png';
@@ -48,13 +47,6 @@ function Home() {
   const marketProduct = useSelector(
     (state: RootState) => state.productsSlice.market,
   );
-
-  const totalRequests = marketProduct.reduce(
-    (acc, crr) => acc + crr.product.total,
-    0,
-  );
-
-  const newTotalRequests = formatValue(totalRequests);
 
   const cancelRequest = () => {
     dispatch(deleteProductMarket('removeAll'));
@@ -157,10 +149,6 @@ function Home() {
                   additional={item.additional}
                 />
               ))}
-              <TotalRequest>
-                <h6>Total do pedido:</h6>
-                <h5>{newTotalRequests}</h5>
-              </TotalRequest>
             </DivRequest>
           )}
         </DivContent>

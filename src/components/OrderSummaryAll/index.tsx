@@ -39,9 +39,7 @@ export function OrderSummaryAll({
           item =>
             item.title !== '' && (
               <DivRequests key={item.title}>
-                <span>
-                  {qtd}x {item.title}
-                </span>
+                <span>1x {item.title}</span>
                 <span>{formatValue(item.price)}</span>
               </DivRequests>
             ),

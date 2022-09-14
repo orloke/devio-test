@@ -1,19 +1,13 @@
 import styled from 'styled-components';
 
-interface PropsInput {
-  error: boolean;
-}
-
-export const Container = styled.div<PropsInput>`
+export const Container = styled.div`
   max-width: 70%;
   margin: 1rem auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   min-height: calc(100vh - 80px - 2rem);
   @media (max-width: 768px) {
     display: flex;
-    flex-direction: column;
     text-align: center;
     max-width: 95%;
     min-height: calc(100vh - 128px - 2rem);
@@ -26,7 +20,7 @@ export const Container = styled.div<PropsInput>`
     border: none;
   }
   input {
-    border: ${props => (props.error ? '1px solid red' : '1px solid gray')};
+    border: 1px solid gray;
     margin-right: 1rem;
     width: 40%;
     min-width: 200px;
@@ -36,4 +30,14 @@ export const Container = styled.div<PropsInput>`
       width: 100%;
     }
   }
+`;
+
+export const InfoRequest = styled.div`
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  border: 1px solid #a8a8a8;
+  border-radius: 10px;
+  padding: 1rem;
 `;
