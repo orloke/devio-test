@@ -31,10 +31,10 @@ const productsSlice = createSlice({
       if (action.payload === 'removeAll') {
         state.additional = [];
       }
-      const a = state.additional.filter(
+      const newAdditional = state.additional.filter(
         item => item.title !== action.payload.title,
       );
-      state.additional = a;
+      state.additional = newAdditional;
     },
     addProductMarket(state, action) {
       Object.assign(state, {
@@ -45,10 +45,10 @@ const productsSlice = createSlice({
       if (action.payload === 'removeAll') {
         state.market = [];
       }
-      const a = state.market.filter(
+      const newMarket = state.market.filter(
         item => item.product.id !== action.payload.id,
       );
-      state.market = a;
+      state.market = newMarket;
     },
     addForPayment(state, action) {
       const marketFinishedId = {
@@ -60,8 +60,10 @@ const productsSlice = createSlice({
       });
     },
     deleteForPayment(state, action) {
-      const a = state.finished.filter(item => item.id !== action.payload.id);
-      state.finished = a;
+      const newFinished = state.finished.filter(
+        item => item.id !== action.payload.id,
+      );
+      state.finished = newFinished;
     },
     addForDelivery(state, action) {
       const addDelivery = {
@@ -73,8 +75,10 @@ const productsSlice = createSlice({
       });
     },
     deleteForDelivery(state, action) {
-      const a = state.delivery.filter(item => item.id !== action.payload.id);
-      state.delivery = a;
+      const newDelivery = state.delivery.filter(
+        item => item.id !== action.payload.id,
+      );
+      state.delivery = newDelivery;
     },
   },
 });
