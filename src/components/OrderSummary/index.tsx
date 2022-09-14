@@ -1,14 +1,12 @@
 import { formatValue } from '../../helps';
+import { Additional } from '../../types';
 import { Container, DivRequests, TotalRequest } from './styles';
 
 interface PropsOrderSummary {
   title: string;
   price: string;
   total: number;
-  additional: {
-    title: string;
-    price: number;
-  }[];
+  additional: Additional[];
 }
 
 export function OrderSummary({
