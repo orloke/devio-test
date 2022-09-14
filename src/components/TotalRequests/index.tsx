@@ -6,7 +6,7 @@ interface PropsTotalRequests {
   market: Market[];
 }
 
-export default function TotalRequests({ market }: PropsTotalRequests) {
+export function TotalRequests({ market }: PropsTotalRequests) {
   const totalRequests = market.reduce((acc, crr) => acc + crr.product.total, 0);
 
   const newTotalRequests = formatValue(totalRequests);

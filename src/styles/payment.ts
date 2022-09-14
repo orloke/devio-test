@@ -12,32 +12,41 @@ export const Container = styled.div`
     max-width: 95%;
     min-height: calc(100vh - 128px - 2rem);
   }
-
-  input {
-    height: 50px;
-    border-radius: 6px;
-    padding: 0.5rem;
-    border: none;
-  }
-  input {
-    border: 1px solid gray;
-    margin-right: 1rem;
-    width: 40%;
-    min-width: 200px;
-    @media (max-width: 768px) {
+  .title {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    h3 {
       margin: 0;
-      margin-bottom: 1rem;
-      width: 100%;
     }
   }
 `;
 
-export const InfoRequest = styled.div`
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 45%;
+  margin-top: 2rem;
+  .subTitle {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+`;
+
+export const InfoRequest = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
   border: 1px solid #a8a8a8;
   border-radius: 10px;
   padding: 1rem;
+`;
+
+export const InfoClient = styled.div`
+  display: flex;
+  gap: 2%;
+  width: 100%;
+  margin-top: 1rem;
 `;

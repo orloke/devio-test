@@ -10,7 +10,6 @@ import {
   DivContent,
   DivRequest,
   DivSubtitle,
-  DivTitleInput,
 } from '../styles/home';
 import refrigerante from '../../public/images/refrigerante.png';
 import sobremesa from '../../public/images/sobremesa.png';
@@ -24,10 +23,10 @@ import { ModalRequests } from '../components/ModalRequests';
 import { Produto } from '../types';
 import { getProducts, getProductsCategory } from '../service';
 import { RootState } from '../store';
-import { formatValue } from '../helps';
 import { OrderSummaryAll } from '../components/OrderSummaryAll';
 import { deleteProductMarket } from '../store/products';
-import CardCategories from '../components/CardCategories';
+import { CardCategories } from '../components/CardCategories';
+import { ComponentInput } from '../components/ComponentInput';
 
 function Home() {
   const [products, setProducts] = useState([] as Produto[]);
@@ -64,15 +63,14 @@ function Home() {
       </Head>
       <Container>
         <ModalRequests />
-        <DivTitleInput>
+        <ComponentInput
+          value={search}
+          onChange={setSearch}
+          placeholder="O que você procura?"
+          width="40%"
+        >
           <h1>Seja bem vindo!</h1>
-          <input
-            type="text"
-            placeholder="O que você procura?"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
-        </DivTitleInput>
+        </ComponentInput>
         <DivContent>
           <DivSubtitle>
             <h2>Categorias</h2>
