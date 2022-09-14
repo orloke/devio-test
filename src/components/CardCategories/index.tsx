@@ -7,11 +7,7 @@ interface PropsCardCategories {
   name: string;
 }
 
-export default function CardCategories({
-  onclick,
-  image,
-  name,
-}: PropsCardCategories) {
+export function CardCategories({ onclick, image, name }: PropsCardCategories) {
   return (
     <Cards onClick={onclick}>
       <Image width={100} height={100} src={image} alt={name} />
