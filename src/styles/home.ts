@@ -8,27 +8,6 @@ export const Container = styled.div`
   }
 `;
 
-export const DivTitleInput = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 4rem;
-  h1 {
-    margin: 1rem 0;
-  }
-  input {
-    border: none;
-    background-color: #ebebeb;
-    border-radius: 3px;
-    padding: 0.7rem;
-    font-size: 1rem;
-    width: 40%;
-    @media (max-width: 768px) {
-      width: 100%;
-    }
-  }
-`;
-
 export const DivContent = styled.div`
   display: flex;
   flex-direction: column;
