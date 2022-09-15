@@ -4,10 +4,11 @@ import { DivTitleInput } from './styles';
 interface PropsComponentInput {
   children: ReactNode;
   placeholder?: string;
-  onChange: Dispatch<SetStateAction<string>>;
-  value: string | number;
+  onChange?: Dispatch<SetStateAction<string>>;
+  value?: string | number;
   width?: string;
   marginTop?: string;
+  type: string;
 }
 
 export function ComponentInput({
@@ -17,15 +18,21 @@ export function ComponentInput({
   value,
   width,
   marginTop,
+  type,
 }: PropsComponentInput) {
+  const teste = (event: string) => {
+    if (onChange) {
+      onChange(event);
+    }
+  };
   return (
     <DivTitleInput width={width} marginTop={marginTop}>
       {children}
       <input
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={e => teste(e.target.value)}
       />
     </DivTitleInput>
   );

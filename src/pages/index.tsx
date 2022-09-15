@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import router from 'next/router';
 import {
   Container,
   DivButtons,
@@ -30,7 +30,6 @@ import { ComponentInput } from '../components/ComponentInput';
 
 function Home() {
   const [products, setProducts] = useState([] as Produto[]);
-  const router = useRouter();
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
 
@@ -64,6 +63,7 @@ function Home() {
       <Container>
         <ModalRequests />
         <ComponentInput
+          type="text"
           value={search}
           onChange={setSearch}
           placeholder="O que você procura?"
@@ -160,7 +160,7 @@ function Home() {
           <Button
             disabled={marketProduct.length === 0}
             variant="fill"
-            text="Finalizar pedido"
+            text="Continuar para pagamento"
             ml={2}
             onclick={() => router.push('/payment')}
           />

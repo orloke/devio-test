@@ -14,24 +14,33 @@ export const Container = styled.div`
   }
   .title {
     display: flex;
-    gap: 0.5rem;
     align-items: center;
     h3 {
       margin: 0;
+      margin-left: 0.5rem;
     }
   }
 `;
 
-export const Content = styled.div`
+interface PropsMain {
+  width: string;
+}
+
+export const Main = styled.div<PropsMain>`
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: ${props => props.width};
   margin-top: 2rem;
   .subTitle {
     font-size: 0.8rem;
     font-weight: bold;
     margin-bottom: 0.3rem;
   }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const InfoRequest = styled.div`
@@ -49,4 +58,16 @@ export const InfoClient = styled.div`
   gap: 2%;
   width: 100%;
   margin-top: 1rem;
+`;
+
+export const DivButtons = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 3rem;
+  margin-top: auto;
+  @media (max-width: 768px) {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
