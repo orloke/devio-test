@@ -20,6 +20,7 @@ export function ModalRequests() {
   const additional = useSelector(
     (state: RootState) => state.productsSlice.additional,
   );
+
   const showModal = useSelector((state: RootState) => state.productsSlice.show);
   const produto = useSelector(
     (state: RootState) => state.productsSlice.product,

@@ -1,6 +1,5 @@
 import { ReactNode, useState } from 'react';
-import { Checkbox } from '../Checkbox';
-import { Container } from './styles';
+import { Container, Checkbox } from './styles';
 
 interface PropsPaymentMethods {
   icon: ReactNode;
@@ -19,7 +18,12 @@ export default function PaymentMethod({
         {icon}
         <h6>{nameMethod}</h6>
       </div>
-      <Checkbox id={id} />
+      <Checkbox>
+        <label htmlFor={id}>
+          <input type="radio" id={id} name="question" />
+          <div />
+        </label>
+      </Checkbox>
     </Container>
   );
 }

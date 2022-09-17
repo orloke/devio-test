@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { formatValue } from '../../helps';
 import { addAdditioanl, removeAdditioanl } from '../../store/products';
 import { Checkbox } from '../Checkbox';
-import { DivAdditional } from './styles';
+import { DivAdditional, DivCheckbox } from './styles';
 
 interface PropsAditional {
   title: string;
@@ -44,7 +44,9 @@ export function Aditional({
       </div>
       <div className="divValue">
         <span>R$ {newPrice}</span>
-        <Checkbox checked={checked} onClick={() => takeAditional(title)} />
+        <DivCheckbox onClick={() => takeAditional(title)} checked={checked}>
+          <div className="active" />
+        </DivCheckbox>
       </div>
     </DivAdditional>
   );
