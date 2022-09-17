@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import router from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { IoWallet } from 'react-icons/io5';
@@ -20,7 +21,7 @@ import {
 import { ComponentInput } from '../../components/ComponentInput';
 import PaymentMethod from '../../components/PaymentMethod';
 import { Button } from '../../components/Buttons';
-import { deleteProductMarket } from '../../store/products';
+import { addForPayment, deleteProductMarket } from '../../store/products';
 
 export default function Payment() {
   const [nameClient, setNameClient] = useState('');
@@ -29,6 +30,18 @@ export default function Payment() {
   const market = useSelector((state: RootState) => state.productsSlice.market);
   const cancelRequest = () => {
     dispatch(deleteProductMarket('removeAll'));
+    router.push('/');
+    return toast.success('Seu pedido foi cancelado. Faça um novo pedido!');
+  };
+
+  const handleConfirmPayment = () => {
+    if (nameClient) {
+      dispatch(addForPayment({ market, name: nameClient }));
+      dispatch(deleteProductMarket('removeAll'));
+      router.push('/kitchen');
+      return toast.success('Pedido realizado com sucesso!');
+    }
+    return toast.warning('Escreva seu nome!');
   };
 
   return (
@@ -117,17 +130,15 @@ export default function Payment() {
         </Content>
         <DivButtons>
           <Button
-            disabled={nameClient.length === 0}
             variant="outline"
             text="cancelar"
             onclick={() => cancelRequest()}
           />
           <Button
-            disabled={nameClient.length === 0}
             variant="fill"
             text="Continuar para pagamento"
             ml={2}
-            onclick={() => router.push('/kitchen')}
+            onclick={handleConfirmPayment}
           />
         </DivButtons>
       </Container>

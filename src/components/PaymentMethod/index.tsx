@@ -1,4 +1,5 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
+import { toast } from 'react-toastify';
 import { Container, Checkbox } from './styles';
 
 interface PropsPaymentMethods {
@@ -12,13 +13,16 @@ export default function PaymentMethod({
   nameMethod,
   id,
 }: PropsPaymentMethods) {
+  const teste = () => {
+    toast.success(`Pagamento escolhido: ${id}`);
+  };
   return (
     <Container>
       <div className="paymentName">
         {icon}
         <h6>{nameMethod}</h6>
       </div>
-      <Checkbox>
+      <Checkbox onClick={teste}>
         <label htmlFor={id}>
           <input type="radio" id={id} name="question" />
           <div />
