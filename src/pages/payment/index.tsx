@@ -81,14 +81,17 @@ export default function Payment() {
           <Main width="30%">
             <span className="subTitle">Selecione a forma de pagamento</span>
             <PaymentMethod
+              id="debito"
               icon={<AiFillCreditCard color="green" />}
               nameMethod="Débito"
             />
             <PaymentMethod
+              id="credito"
               icon={<BiCreditCardFront color="green" />}
               nameMethod="Crédito"
             />
             <PaymentMethod
+              id="dinheiro"
               icon={<FaRegMoneyBillAlt color="green" />}
               nameMethod="Dinheiro"
             />

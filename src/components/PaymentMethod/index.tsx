@@ -5,23 +5,21 @@ import { Container } from './styles';
 interface PropsPaymentMethods {
   icon: ReactNode;
   nameMethod: string;
+  id: string;
 }
 
 export default function PaymentMethod({
   icon,
   nameMethod,
+  id,
 }: PropsPaymentMethods) {
-  const [checked, setChecked] = useState(false);
-  const handleSelectPayment = () => {
-    setChecked(!checked);
-  };
   return (
-    <Container checked={checked}>
+    <Container>
       <div className="paymentName">
         {icon}
         <h6>{nameMethod}</h6>
       </div>
-      <Checkbox checked={checked} onClick={handleSelectPayment} />
+      <Checkbox id={id} />
     </Container>
   );
 }

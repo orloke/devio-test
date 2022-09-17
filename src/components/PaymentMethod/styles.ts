@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
-interface PropsContainer {
-  checked: boolean;
-}
-
-export const Container = styled.div<PropsContainer>`
-  border: ${props => (props.checked ? '1px solid green' : '1px solid #a8a8a8')};
+export const Container = styled.div`
+  border: 1px solid gray;
   padding: 1rem;
   border-radius: 10px;
   display: flex;

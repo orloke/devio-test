@@ -1,14 +1,16 @@
-import { DivCheckbox } from './styles';
+import { Container } from './styles';
 
 interface PropsCheckbox {
-  checked: boolean;
-  onClick?: () => void;
+  id: string;
 }
 
-export function Checkbox({ checked, onClick }: PropsCheckbox) {
+export function Checkbox({ id }: PropsCheckbox) {
   return (
-    <DivCheckbox onClick={onClick} checked={checked}>
-      <div className="active" />
-    </DivCheckbox>
+    <Container>
+      <label htmlFor={id}>
+        <input type="radio" id={id} name="question" />
+        <div />
+      </label>
+    </Container>
   );
 }
