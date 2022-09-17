@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { formatValue } from '../../helps';
 import { addAdditioanl, removeAdditioanl } from '../../store/products';
-import { Checkbox } from '../Checkbox';
 import { DivAdditional, DivCheckbox } from './styles';
 
 interface PropsAditional {
