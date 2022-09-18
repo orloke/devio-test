@@ -27,6 +27,7 @@ import { OrderSummaryAll } from '../components/OrderSummaryAll';
 import { deleteProductMarket } from '../store/products';
 import { CardCategories } from '../components/CardCategories';
 import { ComponentInput } from '../components/ComponentInput';
+import { TotalRequests } from '../components/TotalRequests';
 
 function Home() {
   const [products, setProducts] = useState([] as Produto[]);
@@ -147,6 +148,7 @@ function Home() {
                   additional={item.additional}
                 />
               ))}
+              <TotalRequests market={marketProduct} />
             </DivRequest>
           )}
         </DivContent>
