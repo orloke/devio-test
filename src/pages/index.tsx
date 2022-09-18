@@ -1,12 +1,10 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import router from 'next/router';
 import {
   Container,
   DivButtons,
-  DivCards,
   DivContent,
   DivRequest,
   DivSubtitle,
@@ -16,8 +14,6 @@ import sobremesa from '../../public/images/sobremesa.png';
 import cerveja from '../../public/images/cerveja.png';
 import hamburger from '../../public/images/hamburguer2.png';
 import combo from '../../public/images/combo.png';
-import loading from '../../public/images/loading.svg';
-import { CardProduct } from '../components/CardProduct';
 import { Button } from '../components/Buttons';
 import { ModalRequests } from '../components/ModalRequests';
 import { Produto } from '../types';
@@ -28,6 +24,7 @@ import { deleteProductMarket } from '../store/products';
 import { CardCategories } from '../components/CardCategories';
 import { ComponentInput } from '../components/ComponentInput';
 import { TotalRequests } from '../components/TotalRequests';
+import { RenderProductsHome } from '../components/RenderProductsHome';
 
 function Home() {
   const [products, setProducts] = useState([] as Produto[]);
@@ -110,27 +107,7 @@ function Home() {
             <h2>Produtos</h2>
             <p>Selecione um produto para adicionar ao seu pedido</p>
           </DivSubtitle>
-          {products.length === 0 && !search ? (
-            <Image src={loading} />
-          ) : (
-            <DivCards>
-              {products.length !== 0 ? (
-                products.map(item => (
-                  <CardProduct
-                    key={item.id}
-                    id={item.id}
-                    image={item.image}
-                    title={item.title}
-                    description={item.description}
-                    price={item.price}
-                    category={item.category}
-                  />
-                ))
-              ) : (
-                <p>Produto não encontrado</p>
-              )}
-            </DivCards>
-          )}
+          <RenderProductsHome products={products} search={search} />
         </DivContent>
         <DivContent>
           <h2>Pedidos</h2>

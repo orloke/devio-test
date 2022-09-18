@@ -39,25 +39,6 @@ export const DivSubtitle = styled.div`
   }
 `;
 
-export const DivCards = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
-  row-gap: 2rem;
-
-  @media (max-width: 900px) {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  @media (max-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 370px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-`;
-
 export const DivButtons = styled.div`
   display: flex;
   justify-content: flex-end;
