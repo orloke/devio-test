@@ -20,7 +20,7 @@ export function ComponentInput({
   marginTop,
   type,
 }: PropsComponentInput) {
-  const teste = (event: string) => {
+  const handleInput = (event: string) => {
     if (onChange) {
       onChange(event);
     }
@@ -32,7 +32,7 @@ export function ComponentInput({
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={e => teste(e.target.value)}
+        onChange={e => handleInput(e.target.value)}
       />
     </DivTitleInput>
   );
