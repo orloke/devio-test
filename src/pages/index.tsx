@@ -139,9 +139,9 @@ function Home() {
             <DivRequest>
               {marketProduct.map(item => (
                 <OrderSummaryAll
-                  key={item.product.title}
+                  key={item.id}
                   title={item.product.title}
-                  id={item.product.id}
+                  id={item.id}
                   qtd={item.product.qtd}
                   price={item.product.price}
                   additional={item.additional}

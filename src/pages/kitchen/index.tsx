@@ -46,13 +46,13 @@ export default function Kitchen() {
           {marketRequests.map(item => (
             <Content key={`${item.id}preparando`}>
               <h5>Cliente: {item.name}</h5>
-              {item.market.map(product => (
+              {item.market.map(productItem => (
                 <CardRequests
-                  key={product.product.title}
-                  qtd={product.product.qtd}
-                  title={product.product.title}
-                  additional={product.additional}
-                  observation={product.product.observation}
+                  key={productItem.product.title}
+                  qtd={productItem.product.qtd}
+                  title={productItem.product.title}
+                  additional={productItem.additional}
+                  observation={productItem.product.observation}
                 />
               ))}
               <DivButtons>

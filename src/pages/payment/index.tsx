@@ -25,9 +25,11 @@ import { addForPayment, deleteProductMarket } from '../../store/products';
 
 export default function Payment() {
   const [nameClient, setNameClient] = useState('');
+  const [paymentType, setPaymentType] = useState('');
   const dispatch = useDispatch();
 
   const market = useSelector((state: RootState) => state.productsSlice.market);
+
   const cancelRequest = () => {
     dispatch(deleteProductMarket('removeAll'));
     router.push('/');
@@ -35,13 +37,13 @@ export default function Payment() {
   };
 
   const handleConfirmPayment = () => {
-    if (nameClient) {
+    if (nameClient && paymentType) {
       dispatch(addForPayment({ market, name: nameClient }));
       dispatch(deleteProductMarket('removeAll'));
       router.push('/kitchen');
       return toast.success('Pedido realizado com sucesso!');
     }
-    return toast.warning('Escreva seu nome!');
+    return toast.warning('Escreva seu nome e escolha a forma de pagamento!');
   };
 
   return (
@@ -64,7 +66,7 @@ export default function Payment() {
                   title={item.product.title}
                   additional={item.additional}
                   price={item.product.price}
-                  id={item.product.id}
+                  id={item.id}
                   qtd={item.product.qtd}
                 />
               ))}
@@ -94,17 +96,20 @@ export default function Payment() {
           <Main width="30%">
             <span className="subTitle">Selecione a forma de pagamento</span>
             <PaymentMethod
-              id="debito"
+              paymentType={setPaymentType}
+              id="Débito"
               icon={<AiFillCreditCard color="green" />}
               nameMethod="Débito"
             />
             <PaymentMethod
-              id="credito"
+              paymentType={setPaymentType}
+              id="Crédito"
               icon={<BiCreditCardFront color="green" />}
               nameMethod="Crédito"
             />
             <PaymentMethod
-              id="dinheiro"
+              paymentType={setPaymentType}
+              id="Dinheiro"
               icon={<FaRegMoneyBillAlt color="green" />}
               nameMethod="Dinheiro"
             />

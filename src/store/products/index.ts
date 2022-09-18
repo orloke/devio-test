@@ -37,8 +37,12 @@ const productsSlice = createSlice({
       state.additional = newAdditional;
     },
     addProductMarket(state, action) {
+      const marketId = {
+        ...action.payload,
+        id: state.market.length + 1,
+      };
       Object.assign(state, {
-        market: [...state.market, action.payload],
+        market: [...state.market, marketId],
       });
     },
     deleteProductMarket(state, action) {
@@ -46,7 +50,7 @@ const productsSlice = createSlice({
         state.market = [];
       }
       const newMarket = state.market.filter(
-        item => item.product.id !== action.payload.id,
+        item => item.id !== action.payload.id,
       );
       state.market = newMarket;
     },
