@@ -109,28 +109,10 @@ export default function Payment() {
             />
             <PaymentMethod
               paymentType={setPaymentType}
-              id="Dinheiro"
+              id="Pix"
               icon={<FaRegMoneyBillAlt color="green" />}
-              nameMethod="Dinheiro"
+              nameMethod="Pix"
             />
-            <InfoClient>
-              <ComponentInput
-                type="number"
-                placeholder="Valor entregue"
-                width="68%"
-                marginTop="0"
-              >
-                <span className="subTitle">Valor entregue</span>
-              </ComponentInput>
-              <ComponentInput
-                type="number"
-                width="30%"
-                marginTop="0"
-                placeholder="R$ 0,00"
-              >
-                <span className="subTitle">Troco</span>
-              </ComponentInput>
-            </InfoClient>
           </Main>
         </Content>
         <DivButtons>
@@ -141,7 +123,7 @@ export default function Payment() {
           />
           <Button
             variant="fill"
-            text="Continuar para pagamento"
+            text="Pagar"
             ml={2}
             onclick={handleConfirmPayment}
           />
