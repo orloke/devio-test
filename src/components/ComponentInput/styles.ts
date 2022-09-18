@@ -3,6 +3,7 @@ import styled from 'styled-components';
 interface PropsDivTitleInput {
   width?: string;
   marginTop?: string;
+  responsive?: string;
 }
 
 export const DivTitleInput = styled.div<PropsDivTitleInput>`
@@ -10,6 +11,9 @@ export const DivTitleInput = styled.div<PropsDivTitleInput>`
   flex-direction: column;
   margin-top: ${props => props.marginTop || '4rem'};
   width: ${props => props.width || '100%'};
+  @media (max-width: 768px) {
+    width: ${props => props.responsive};
+  }
   input {
     width: 100%;
     border: none;

@@ -15,6 +15,9 @@ export const Container = styled.div`
   .title {
     display: flex;
     align-items: center;
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
     h3 {
       margin: 0;
       margin-left: 0.5rem;
@@ -31,6 +34,9 @@ export const Main = styled.div<PropsMain>`
   flex-direction: column;
   width: ${props => props.width};
   margin-top: 2rem;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
   .subTitle {
     font-size: 0.8rem;
     font-weight: bold;
@@ -41,6 +47,10 @@ export const Main = styled.div<PropsMain>`
 export const Content = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const InfoRequest = styled.div`
@@ -55,7 +65,7 @@ export const InfoRequest = styled.div`
 
 export const InfoClient = styled.div`
   display: flex;
-  gap: 2%;
+  justify-content: space-between;
   width: 100%;
   margin-top: 1rem;
 `;
@@ -68,6 +78,9 @@ export const DivButtons = styled.div`
   @media (max-width: 768px) {
     justify-content: center;
     flex-direction: column;
+    margin: auto;
     gap: 1rem;
+    margin-top: 1rem;
+    width: 90%;
   }
 `;

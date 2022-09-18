@@ -9,6 +9,7 @@ interface PropsComponentInput {
   width?: string;
   marginTop?: string;
   type: string;
+  responsive?: string;
 }
 
 export function ComponentInput({
@@ -19,6 +20,7 @@ export function ComponentInput({
   width,
   marginTop,
   type,
+  responsive,
 }: PropsComponentInput) {
   const handleInput = (event: string) => {
     if (onChange) {
@@ -26,7 +28,7 @@ export function ComponentInput({
     }
   };
   return (
-    <DivTitleInput width={width} marginTop={marginTop}>
+    <DivTitleInput width={width} marginTop={marginTop} responsive={responsive}>
       {children}
       <input
         type={type}

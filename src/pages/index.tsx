@@ -66,6 +66,7 @@ function Home() {
           onChange={setSearch}
           placeholder="O que você procura?"
           width="40%"
+          responsive="100%"
         >
           <h1>Seja bem vindo!</h1>
         </ComponentInput>
