@@ -18,11 +18,11 @@
 Bem-vindo ao Orloke FastFood excelente para qualquer tipo de restaurante.
 
 
-Na nossa tela inicial você pode encontrar as opções mais populares, onde também é possível pesquisar por nome do produto ou categoria. E com apenas um clique você seleciona o seu produto, quais adicionais vai querer e se deseja deixar alguma observação. Feito isso é só revisar seu pedido e clicar em “Finalizar Pedido”.
-Você será redirecionado para a tela de pagamento. Nessa parte, a desejo do estabelecimento, será exibido os tipos de pagamentos que são aceitos: Paypal, cartão de credito, dinheiro... por enquanto deixamos apenas a opção de digitar o nome do cliente.
+Na nossa tela inicial você pode encontrar as opções mais populares, onde também é possível pesquisar por nome do produto ou categoria. E basta você clicar para selecionar o seu produto, quais adicionais vai querer e se deseja deixar alguma observação. Feito isso é só revisar seu pedido e clicar em “Finalizar Pedido”.
+Você será redirecionado para a tela de pagamento. Nessa parte, o cliente do estabelecimento irá colocar o nome e selecionar uma forma de pagamento, sendo essas duas informações obrigatorias.
 
 
-Confirmado o pagamento vamos para a “Cozinha” (somente pessoal) onde é possível ver os produtos que estão em preparo e aqueles que já estão prontos. E com apenas um click você pode mudar o status deles de preparo para pronto, e automaticamente já são encaminhados para o delivery. Tudo isso de uma maneira rápida e intuitiva que que vai de dar mais tranquilidade e prazer em administrar o seu negócio! 
+Confirmado o pagamento vamos para a “Cozinha” onde, somente funcionários do estabelecimento, podem ver os produtos que estão em preparo e aqueles que já estão prontos. E com apenas um click você pode mudar o status deles de preparo para pronto, e automaticamente já são encaminhados para o delivery. Tudo isso de uma maneira rápida e intuitiva dando mais tranquilidade e prazer em administrar o seu negócio! 
 
 ## :fire: Prévia da Aplicação
 
@@ -32,6 +32,10 @@ Não esqueça de ativar o áudio do vídeo!
 
 
 https://user-images.githubusercontent.com/96503495/190912938-fe3da766-5f7f-4b15-a811-703d18c2c136.mp4
+
+#### Responsividade
+
+https://user-images.githubusercontent.com/96503495/190928333-f474dd1d-bc8b-4ea9-ae0b-171f0a93790d.mp4
 
 
 ## :rocket: Tecnologias Usadas
@@ -88,11 +92,13 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       
       //codigo encontrado dentro de src/api
 ```
-Na parte de Front-End dê preferencia a usar Redux em vez de ContextApi. Ambos resolveriam os problemas que surgiram, mas através de pesquisas e opiniões de outros Devs considero o Redux mais poderoso. 
+Na parte de Front-End dê preferencia a usar Redux em vez de ContextApi. Ambos resolveriam os problemas que surgiram, mas através de pesquisas e opiniões de outros Devs considero o Redux mais poderoso. O vídeo abaixo fala desses e outros pontos do código.
+
+[Explicação em vídeo](https://youtu.be/7ZtXpc-ypew)
 
 ## :grinning: Conclusão
 
-#### Dificuldades
+#### Dificuldades e observaçãoes
 
 * Esse foi o primeiro e-commerce que desenvolvi e por isso considerei um projeto desafiador, mas muito gratificante.
 
@@ -100,9 +106,13 @@ Na parte de Front-End dê preferencia a usar Redux em vez de ContextApi. Ambos r
 
 * Tive de quebrar a cabeça para poder separar os pedidos entre clientes.
 
-Todo o projeto é resultado de escolhas pessoais, que sempre busquei basear em pesquisas e nos estudos que fiz. 
+* Tentei seguir as melhores praticas de código, mas sem dúvidas pequei nessa parte e reconheço. Irei melhorar! 
 
-Algumas partes do projeto, como a pagina de pagamento, ainda podem e serão melhoradas com o tempo, mas fico feliz de ter cumpridos as exigências para a entrega!
+* Todo o projeto é resultado de escolhas pessoais, que sempre busquei basear em pesquisas e nos estudos que fiz. 
+
+* Em algumas partes do projeto, como a pagina de pagamento, optei por mudar a opção de pagamento em dinheiro pela opção do Pix, assim o campo de troco deixou de ser necessário. 
+
+* Apesar das dificuldades as exigências para a entrega foram cumpridas!
 
 Agradeço a [Devio](https://devio.com.br/) pela oportunidade! :D
 
