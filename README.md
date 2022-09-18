@@ -30,7 +30,9 @@ https://orlokefood.vercel.app
 
 Não esqueça de ativar o áudio do vídeo!
 
-https://user-images.githubusercontent.com/96503495/188948217-85e34da0-006e-4969-ba84-d497cb6d973e.mp4
+
+https://user-images.githubusercontent.com/96503495/190912938-fe3da766-5f7f-4b15-a811-703d18c2c136.mp4
+
 
 ## :rocket: Tecnologias Usadas
 
