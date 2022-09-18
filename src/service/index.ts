@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Produto } from '../types';
 
 const baseApi = axios.create({
-  baseURL: 'https://devio-test.vercel.app',
+  baseURL: 'https://orlokefood.vercel.app',
 });
 
 export const getProducts = async (search: string): Promise<Produto[]> => {
