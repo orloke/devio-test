@@ -38,7 +38,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       {
         id: 5,
         category: 'sobremesa',
-        title: 'açai',
+        title: 'Açai',
         price: 16.5,
         description: '500 ml',
         image: '/images/sobremesa.png',

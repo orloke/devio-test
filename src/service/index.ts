@@ -14,8 +14,10 @@ export const getProducts = async (search: string): Promise<Produto[]> => {
       return products;
     }
 
+    const newSearch = search.toLowerCase();
+
     const productsFilter = products.filter((item: Produto) =>
-      item.title.toLowerCase().includes(search),
+      item.title.toLowerCase().includes(newSearch),
     );
 
     return productsFilter;

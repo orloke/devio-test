@@ -31,7 +31,6 @@ export function RenderProductsHome({
             category={item.category}
           />
         ))}
-        ;
       </Container>
     );
   }
