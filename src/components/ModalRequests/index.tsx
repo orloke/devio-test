@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatValue } from '../../helps';
@@ -26,7 +26,9 @@ export function ModalRequests() {
     (state: RootState) => state.productsSlice.product,
   );
 
-  const priceAdditional = additional.reduce((a, b) => a + b.price, 0);
+  const priceAdditional = useMemo(() => {
+    return additional.reduce((a, b) => a + b.price, 0);
+  }, [additional]);
   const price = formatValue(produto.price) as string;
 
   const handleQtd = (operation: string) => {

@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
+import { memo } from 'react';
 import { Cards } from './styles';
 
 interface PropsCardCategories {
@@ -7,7 +8,11 @@ interface PropsCardCategories {
   name: string;
 }
 
-export function CardCategories({ onclick, image, name }: PropsCardCategories) {
+function CardCategoriesComponent({
+  onclick,
+  image,
+  name,
+}: PropsCardCategories) {
   return (
     <Cards onClick={onclick}>
       <Image width={100} height={100} src={image} alt={name} />
@@ -15,3 +20,10 @@ export function CardCategories({ onclick, image, name }: PropsCardCategories) {
     </Cards>
   );
 }
+
+export const CardCategories = memo(
+  CardCategoriesComponent,
+  (prevProps, nextProps) => {
+    return prevProps.image === nextProps.image;
+  },
+);

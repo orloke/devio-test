@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import router from 'next/router';
@@ -15,7 +16,6 @@ import cerveja from '../../public/images/cerveja.png';
 import hamburger from '../../public/images/hamburguer2.png';
 import combo from '../../public/images/combo.png';
 import { Button } from '../components/Buttons';
-import { ModalRequests } from '../components/ModalRequests';
 import { Produto } from '../types';
 import { getProducts, getProductsCategory } from '../service';
 import { RootState } from '../store';
@@ -25,6 +25,10 @@ import { CardCategories } from '../components/CardCategories';
 import { ComponentInput } from '../components/ComponentInput';
 import { TotalRequests } from '../components/TotalRequests';
 import { RenderProductsHome } from '../components/RenderProductsHome';
+
+const ModalRequests = dynamic(async () => {
+  return import('../components/ModalRequests').then(mod => mod.ModalRequests);
+});
 
 function Home() {
   const [products, setProducts] = useState([] as Produto[]);
@@ -43,6 +47,7 @@ function Home() {
   const marketProduct = useSelector(
     (state: RootState) => state.productsSlice.market,
   );
+  const setModal = useSelector((state: RootState) => state.productsSlice.show);
 
   const cancelRequest = () => {
     dispatch(deleteProductMarket('removeAll'));
@@ -59,7 +64,8 @@ function Home() {
         <title>FastFood</title>
       </Head>
       <Container>
-        <ModalRequests />
+        {setModal && <ModalRequests />}
+
         <ComponentInput
           type="text"
           value={search}
