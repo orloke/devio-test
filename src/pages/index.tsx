@@ -26,7 +26,7 @@ import { ComponentInput } from '../components/ComponentInput';
 import { TotalRequests } from '../components/TotalRequests';
 import { RenderProductsHome } from '../components/RenderProductsHome';
 
-const ModalRequests = dynamic(() => {
+const ModalRequests = dynamic<{ inline?: boolean }>(() => {
   return import('../components/ModalRequests').then(mod => mod.ModalRequests);
 });
 
