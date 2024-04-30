@@ -25,7 +25,7 @@ import { CardCategories } from '../components/CardCategories';
 import { ComponentInput } from '../components/ComponentInput';
 import { TotalRequests } from '../components/TotalRequests';
 import { RenderProductsHome } from '../components/RenderProductsHome';
-
+//update node
 const ModalRequests = dynamic<{ inline?: boolean }>(() => {
   return import('../components/ModalRequests').then(mod => mod.ModalRequests);
 });
