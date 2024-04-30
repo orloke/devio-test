@@ -150,6 +150,12 @@ function Home() {
             ml={2}
             onclick={() => router.push('/payment')}
           />
+                    <Button
+            variant="fill"
+            text="Continuar para checkout"
+            ml={2}
+            onclick={() => router.push('http://localhost:3000/pt/64d0106d-80a2-4063-bdfb-d76205d53d67/NDQ3OA==')}
+          />
         </DivButtons>
       </Container>
     </>
