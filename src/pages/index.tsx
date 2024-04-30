@@ -150,7 +150,7 @@ function Home() {
             ml={2}
             onclick={() => router.push('/payment')}
           />
-                    <Button
+          <Button
             variant="fill"
             text="Continuar para checkout"
             ml={2}
